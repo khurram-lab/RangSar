@@ -1,0 +1,387 @@
+/* ============================================================
+   RANGSAR STUDIO — styles.css
+   Brand: Rose Pink · Deep Crimson · Deep Plum · Warm Gold
+   Tagline: Elegance in Every Thread
+   ============================================================ */
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Body ── */
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #fdf0f3;
+  color: #1a0d11;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+}
+.dark body, body.dark {
+  background-color: #12080a;
+  color: #faf0f2;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #c9a065; border-radius: 99px; }
+
+/* ── Navigation Glass ── */
+.nav-glass {
+  background: rgba(253, 240, 243, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(212, 132, 158, 0.2);
+  transition: background 0.4s ease, box-shadow 0.3s ease;
+}
+.dark .nav-glass {
+  background: rgba(18, 8, 10, 0.90);
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+}
+
+/* ── Logo colours ── */
+.brand-rang { color: #9b2355; }
+.brand-sar  { color: #3d1a47; }
+.dark .brand-rang { color: #e8a4b8; }
+.dark .brand-sar  { color: #c084fc; }
+
+/* ── Hero ── */
+.hero-bg {
+  background: radial-gradient(ellipse at 60% 40%, #fbeef2 0%, #fdf0f3 55%, #f4e2e6 100%);
+}
+.dark .hero-bg {
+  background: radial-gradient(ellipse at 60% 40%, #291218 0%, #12080a 70%, #0a0304 100%);
+}
+
+/* ── Announcement marquee ── */
+.marquee-wrap { overflow: hidden; white-space: nowrap; }
+.marquee-inner { display: inline-block; animation: marquee 28s linear infinite; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+/* ── Filter Tabs ── */
+.filter-tab {
+  border: 1.5px solid rgba(212, 132, 158, 0.4);
+  color: #4a353b;
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+.dark .filter-tab {
+  border-color: rgba(168, 85, 247, 0.3);
+  color: #faf0f2;
+}
+.filter-tab:hover {
+  border-color: #c9a065;
+  color: #c9a065;
+}
+.filter-tab.active {
+  background: #9b2355;
+  border-color: #9b2355;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(155, 35, 85, 0.3);
+}
+.dark .filter-tab.active {
+  background: #3d1a47;
+  border-color: #a855f7;
+}
+
+/* ── Product Cards ── */
+.product-card {
+  border-radius: 1.25rem;
+  border: 1px solid rgba(212, 132, 158, 0.18);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.dark .product-card {
+  border-color: rgba(168, 85, 247, 0.12);
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(155, 35, 85, 0.14);
+  border-color: #d4849e;
+}
+.dark .product-card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 16px 40px rgba(168, 85, 247, 0.1);
+}
+
+/* ── Card body background ── */
+.card-body {
+  background: #ffffff;
+  transition: background 0.4s ease;
+}
+.dark .card-body { background: #1a0e10; }
+
+/* ── Add to cart button ── */
+.btn-cart {
+  background: linear-gradient(135deg, #9b2355, #b8326b);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.btn-cart:hover {
+  background: linear-gradient(135deg, #3d1a47, #5c2d6e);
+  box-shadow: 0 4px 16px rgba(61, 26, 71, 0.35);
+}
+.btn-cart:active { transform: translateY(0) !important; }
+
+/* ── Size buttons (selected state via JS) ── */
+.size-btn { cursor: pointer; transition: all 0.2s ease; }
+
+/* ── Cart overlay ── */
+#cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 8, 10, 0.5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+#cart-overlay.open { opacity: 1; pointer-events: all; }
+
+/* ── Cart drawer ── */
+#cart-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  height: 100%;
+  width: min(420px, 100vw);
+  background: #fdf0f3;
+  border-left: 1px solid rgba(212, 132, 158, 0.2);
+  z-index: 100;
+  transform: translateX(100%);
+  transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+}
+.dark #cart-drawer {
+  background: #160a0c;
+  border-left-color: rgba(168, 85, 247, 0.15);
+}
+
+/* ── Checkout modal overlay ── */
+#modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 8, 10, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 110;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 1rem;
+}
+#modal-overlay.open { opacity: 1; pointer-events: all; }
+
+#modal-box {
+  background: #fff;
+  max-width: 560px;
+  width: 100%;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(18, 8, 10, 0.25);
+  transform: scale(0.95);
+  transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+#modal-overlay.open #modal-box { transform: scale(1); }
+.dark #modal-box { background: #1c0f12; }
+
+/* ── Form inputs ── */
+.rs-input {
+  width: 100%;
+  padding: 0.6rem 0.875rem;
+  border-radius: 0.6rem;
+  border: 1.5px solid rgba(212, 132, 158, 0.3);
+  background: #fdf8f9;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  color: #1a0d11;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.dark .rs-input {
+  background: #1f1214;
+  border-color: rgba(168, 85, 247, 0.2);
+  color: #faf0f2;
+}
+.rs-input:focus {
+  border-color: #9b2355;
+  box-shadow: 0 0 0 3px rgba(155, 35, 85, 0.12);
+}
+.rs-input::placeholder { color: #b09098; }
+
+/* ── Payment option cards ── */
+.pay-option {
+  border: 1.5px solid rgba(212, 132, 158, 0.25);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dark .pay-option { border-color: rgba(168, 85, 247, 0.2); }
+.pay-option:hover { border-color: #9b2355; }
+.pay-option:has(input:checked) {
+  border-color: #9b2355;
+  background: rgba(155, 35, 85, 0.05);
+}
+
+/* Payment instruction panels */
+.pay-instructions {
+  background: rgba(201, 160, 101, 0.06);
+  border: 1px solid rgba(201, 160, 101, 0.2);
+  border-radius: 0.75rem;
+  padding: 0.875rem 1rem;
+  margin-top: 0.5rem;
+}
+.dark .pay-instructions { background: rgba(201, 160, 101, 0.04); }
+
+/* ── Dark/light toggle ── */
+.toggle-track {
+  width: 46px;
+  height: 25px;
+  border-radius: 999px;
+  background: rgba(247, 231, 235, 1);
+  border: 1.5px solid #d4849e;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.dark .toggle-track {
+  background: #3d1a47;
+  border-color: #a855f7;
+}
+.toggle-thumb {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: #c9a065;
+  transition: transform 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px;
+}
+.dark .toggle-thumb { transform: translateX(21px); background: #a855f7; }
+
+/* ── Cart badge ── */
+#cart-badge {
+  position: absolute;
+  top: -5px; right: -5px;
+  width: 17px; height: 17px;
+  background: #9b2355;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ── Scroll reveal ── */
+.rs-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.rs-reveal.rs-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Toast animation ── */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ── Gold shimmer text ── */
+.gold-shimmer {
+  background: linear-gradient(135deg, #c9a065 0%, #e0c080 40%, #a07840 70%, #c9a065 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Ornament divider ── */
+.ornament-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #c9a065;
+}
+.ornament-line::before,
+.ornament-line::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201, 160, 101, 0.5), transparent);
+}
+
+/* ── Floating action buttons ── */
+.fab-btn {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+.fab-btn:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(0,0,0,0.28); }
+.fab-tooltip {
+  position: absolute;
+  right: 56px;
+  background: #1a0d11;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.fab-btn:hover .fab-tooltip { opacity: 1; }
+
+/* ── Testimonial cards ── */
+.testi-card {
+  border: 1px solid rgba(212, 132, 158, 0.15);
+  border-radius: 1.25rem;
+  padding: 1.75rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.testi-card:hover {
+  border-color: #d4849e;
+  box-shadow: 0 8px 24px rgba(155, 35, 85, 0.1);
+}
+.dark .testi-card { border-color: rgba(168, 85, 247, 0.1); }
+
+/* ── Footer ── */
+footer { background: #1a0d11; }
+.dark footer { background: #0a0304; }
+
+/* ── Responsive: mobile nav hide ── */
+@media (max-width: 767px) {
+  .nav-links-desktop { display: none; }
+  #modal-box { margin: 0.5rem; border-radius: 1.25rem; }
+}
+
+/* ── Image not available placeholder ── */
+.img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em;
+}
