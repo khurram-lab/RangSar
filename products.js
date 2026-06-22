@@ -163,10 +163,10 @@ const PRODUCTS = [
     desc: "Handcrafted pearl-embellished evening clutch. Pairs perfectly with formal suits.",
     badge: "New",
     sizes: [],         // Empty = no size selector shown (accessories)
-    stock: 0,          // SOLD OUT example
+    stock: 1,          // SOLD OUT example
     active: true,
-    useImage: false,
-    image: "",
+    useImage: true,
+    image: "https://ibb.co/0R1DVc4B",
     bg: "linear-gradient(145deg, #c9a065 0%, #9b7a45 60%, #6b5025 100%)"
   }
 
