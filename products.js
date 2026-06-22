@@ -166,7 +166,7 @@ const PRODUCTS = [
     stock: 1,          // SOLD OUT example
     active: true,
     useImage: true,
-    image: "https://ibb.co/nNgLG44k",
+    image:"https://i.ibb.co/HfVHWRbX/Earring.png",
     bg: "linear-gradient(145deg, #c9a065 0%, #9b7a45 60%, #6b5025 100%)"
   }
 
