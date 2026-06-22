@@ -166,7 +166,7 @@ const PRODUCTS = [
     stock: 1,          // SOLD OUT example
     active: true,
     useImage: true,
-    image: "https://ibb.co/0R1DVc4B",
+    image: "https://ibb.co/nNgLG44k",
     bg: "linear-gradient(145deg, #c9a065 0%, #9b7a45 60%, #6b5025 100%)"
   }
 
