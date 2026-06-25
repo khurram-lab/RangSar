@@ -171,4 +171,42 @@ googleScriptURL: "PASTE YOUR URL HERE"
 
 ---
 
+
+
+
+
+What Was Fixed
+1. 🖼️ Earring Image — No More Stretching
+
+Accessories now show as a square (1:1) with object-fit: contain — so your earring photo shows perfectly without being stretched tall
+All suits/lawn products still use the tall portrait (3:4) ratio
+A white background is added behind accessories so the earring looks clean
+
+2. 🔍 Lightbox Popup — Works on ALL Cards
+
+Clicking any product (image OR gradient card) opens a full popup with:
+
+Your earring photo shown large and clear
+Product name in big display font
+Full description always visible
+Press ESC or click outside to close
+
+
+Gradient cards (no photo yet) show a beautiful branded preview in the popup
+
+
+💸 Discount Codes — How It Works
+Where customer enters code: In the shopping bag/cart → bottom section "Have a Discount Code?"
+How to add a new code — open products.js, find DISCOUNT_CODES and add one line:
+js// Give 20% off for Eid:
+"EID2026": { type: "percent", value: 20, label: "20% Eid Sale" },
+
+// Give PKR 300 fixed off:
+"FLAT300": { type: "fixed", value: 300, label: "PKR 300 Off" },
+To disable a code — put // in front of that line:
+js// "EID2025": { type: "percent", value: 20, label: "20% Eid" },
+Your 5 active codes right now:
+CodeDiscountShare with RANGSAR10 10% offAll customers 
+WELCOME 15% offNew customers EID2025 20% off Eid special FLAT500 PKR 500 offSpecial ordersVIP25% offVIP customers
+
 *RangSar Studio Website — Elegance in Every Thread ✦*
