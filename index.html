@@ -387,9 +387,45 @@
 
   <!-- Cart footer -->
   <div id="cart-footer" class="px-5 py-4 border-t border-rose-dusty/15 flex-shrink-0 space-y-3 hidden">
+
+    <!-- ── DISCOUNT CODE INPUT ── -->
+    <div class="rounded-xl border border-rose-dusty/20 p-3 space-y-2" style="background:rgba(253,240,243,0.5)">
+      <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand">Have a Discount Code?</p>
+      <div class="flex gap-2">
+        <input
+          id="discount-input"
+          type="text"
+          placeholder="e.g. RANGSAR10"
+          onkeypress="handleDiscountKeypress(event)"
+          class="rs-input flex-1 text-xs uppercase tracking-widest"
+          style="padding:0.5rem 0.75rem;"
+          autocomplete="off"
+        />
+        <button onclick="applyDiscountCode()"
+          class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-white flex-shrink-0 transition-all hover:-translate-y-0.5"
+          style="background:linear-gradient(135deg,#9b2355,#b8326b);">
+          Apply
+        </button>
+      </div>
+      <!-- Feedback message -->
+      <p id="discount-msg" class="text-[11px] font-medium" style="display:none;"></p>
+      <!-- Remove discount button -->
+      <button id="remove-discount-btn" onclick="removeDiscount()"
+        class="text-[10px] text-rose-dusty/60 hover:text-crimson-brand transition-colors uppercase tracking-wider"
+        style="display:none;">
+        ✕ Remove discount
+      </button>
+    </div>
+
+    <!-- ── TOTALS ── -->
     <div class="flex justify-between text-sm">
       <span class="text-ink-soft dark:text-rose-light/60">Subtotal</span>
       <span id="cart-subtotal" class="font-semibold text-ink dark:text-white">PKR 0</span>
+    </div>
+    <!-- Discount row — hidden until code applied -->
+    <div id="discount-row" class="flex justify-between text-sm" style="display:none;">
+      <span class="font-semibold" style="color:#22c55e;">Discount</span>
+      <span id="cart-discount" class="font-semibold" style="color:#22c55e;">− PKR 0</span>
     </div>
     <div id="delivery-row" class="flex justify-between text-sm">
       <span class="text-ink-soft dark:text-rose-light/60">Delivery</span>
@@ -526,6 +562,10 @@
         <div class="flex justify-between text-xs border-t border-rose-dusty/10 pt-2 mt-2">
           <span class="text-ink-soft dark:text-rose-light/60">Subtotal</span>
           <span id="modal-subtotal" class="font-semibold text-ink dark:text-white">PKR 0</span>
+        </div>
+        <div id="modal-discount-row" class="flex justify-between text-xs mt-1" style="display:none;">
+          <span class="font-semibold" style="color:#22c55e;">Discount</span>
+          <span id="modal-discount" class="font-semibold" style="color:#22c55e;">− PKR 0</span>
         </div>
         <div class="flex justify-between text-xs mt-1">
           <span class="text-ink-soft dark:text-rose-light/60">Delivery</span>
