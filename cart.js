@@ -777,31 +777,43 @@ document.addEventListener('DOMContentLoaded', () => {
    📊 GOOGLE SHEETS SETUP — paste this in Apps Script
    ============================================================
    function doPost(e) {
-     const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-     const data  = JSON.parse(e.postData.contents);
-     sheet.appendRow([
-       data.orderNumber, data.name, data.phone, data.email,
-       data.address, data.paymentMethod, data.items,
-       data.subtotal, data.discount, data.delivery, data.total, data.timestamp
-     ]);
-     if (data.email) {
-       MailApp.sendEmail({
-         to: data.email,
-         subject: "✦ Order Confirmed — RangSar Studio #" + data.orderNumber,
-         body:
-           "Assalamu Alaikum " + data.name + ",\n\n"
-         + "Your order has been received! 🌸\n\n"
-         + "Order #:   " + data.orderNumber + "\n"
-         + "Items:     " + data.items + "\n"
-         + "Discount:  " + data.discount + "\n"
-         + "Total:     " + data.total + "\n\n"
-         + "Once you send your payment receipt on WhatsApp (+92 321 7024241),\n"
-         + "your order will be dispatched the same day, InshAllah! 🌸\n\n"
-         + "Elegance in Every Thread,\n"
-         + "RangSar Studio Team 💕\n"
-         + "rangsar.pk@gmail.com"
-       });
-     }
-     return ContentService.createTextOutput("OK");
-   }
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const data  = JSON.parse(e.postData.contents);
+
+  sheet.appendRow([
+    data.orderNumber,
+    data.name,
+    data.phone,
+    data.email,
+    data.address,
+    data.paymentMethod,
+    data.items,
+    data.subtotal,
+    data.discount,
+    data.delivery,
+    data.total,
+    data.timestamp
+  ]);
+
+  if (data.email) {
+    MailApp.sendEmail({
+      to: data.email,
+      subject: "✦ Order Confirmed — RangSar Studio #" + data.orderNumber,
+      body:
+          "Assalamu Alaikum " + data.name + ",\n\n"
+        + "Your order has been received! 🌸\n\n"
+        + "Order #:   " + data.orderNumber + "\n"
+        + "Items:     " + data.items + "\n"
+        + "Discount:  " + data.discount + "\n"
+        + "Total:     " + data.total + "\n\n"
+        + "Once you send your payment receipt on WhatsApp (+92 321 7024241),\n"
+        + "your order will be dispatched the same day, InshAllah! 🌸\n\n"
+        + "Elegance in Every Thread,\n"
+        + "RangSar Studio Team 💕\n"
+        + "rangsar.pk@gmail.com"
+    });
+  }
+
+  return ContentService.createTextOutput("OK");
+}
    ============================================================ */
