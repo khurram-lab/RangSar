@@ -11,12 +11,12 @@ const SETTINGS = {
   freeDeliveryAbove: 5000,
   whatsappNumber:    "923217024241",
   storeEmail:        "rangsar.pk@gmail.com",
-  jazzCashNumber:    "0321-7024241",
-  jazzCashName:      "RangSar Studio",
+  jazzCashNumber:    "03248556481",
+  jazzCashName:      "Um Hani",
   bankName:          "Meezan Bank",
-  bankAccountTitle:  "RangSar Studio",
-  bankAccountNumber: "XXXX-XXXX-XXXX-XXXX",   // ← Replace with real account number
-  bankIBAN:          "PK00MEZN0000000000000000", // ← Replace with real IBAN
+  bankAccountTitle:  "UME HANI",
+  bankAccountNumber: "21010102725045",   // ← Replace with real account number
+  bankIBAN:          "PK37MEZN0021010102725045", // ← Replace with real IBAN
   googleScriptURL:   "https://script.google.com/macros/s/YOUR_SCRIPT_ID_HERE/exec"
 };
 
