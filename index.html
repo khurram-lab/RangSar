@@ -39,6 +39,16 @@
 
   <!-- Brand Stylesheet -->
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- ═══ PWA — Install as App on Phone Home Screen ═══ -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#9b2355" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="RangSar Studio" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
 </head>
 
 <body>
@@ -297,7 +307,7 @@
       <div class="ornament-line mb-4"><span class="font-display italic text-sm text-gold-brand px-3">Get In Touch</span></div>
       <h2 class="font-display font-bold text-4xl text-ink dark:text-white">Atelier <span class="gold-shimmer">Contact</span></h2>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
       <a href="mailto:rangsar.pk@gmail.com" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
         <span class="text-2xl mb-2">📧</span>
         <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">Email</p>
@@ -311,6 +321,16 @@
       <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
         <span class="text-2xl mb-2">📸</span>
         <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">Instagram</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">@rangsar.studio</p>
+      </a>
+      <a href="https://www.facebook.com/share/1BBez7zFvJ/" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">📘</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">Facebook</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">RangSar Studio</p>
+      </a>
+      <a href="https://youtube.com/@rangsar.studio?si=qPD52yZiM1-xTwGu" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">▶️</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">YouTube</p>
         <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">@rangsar.studio</p>
       </a>
       <div class="card-body testi-card flex flex-col items-center justify-center text-center p-5">
@@ -333,22 +353,45 @@
     <a href="#testimonials" class="hover:text-white transition-colors">Reviews</a>
     <a href="#contact" class="hover:text-white transition-colors">Contact</a>
     <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+    <a href="https://www.facebook.com/share/1BBez7zFvJ/" target="_blank" class="hover:text-white transition-colors">Facebook</a>
+    <a href="https://youtube.com/@rangsar.studio?si=qPD52yZiM1-xTwGu" target="_blank" class="hover:text-white transition-colors">YouTube</a>
   </div>
   <p class="text-[11px] text-white/25 tracking-widest">© 2026 RangSar Studio. All Rights Reserved. &nbsp;·&nbsp; Crafted with ♥ in Pakistan</p>
 </footer>
 
 <!-- ═══════════════════════════════════════════════
-     FLOATING ACTION BUTTONS (WhatsApp + Instagram)
+     FLOATING ACTION BUTTONS
+     (YouTube + Facebook + Instagram + WhatsApp)
 ════════════════════════════════════════════════ -->
 <div class="fixed bottom-6 right-5 z-50 flex flex-col gap-3 items-end">
+
+  <!-- YouTube -->
+  <a href="https://youtube.com/@rangsar.studio?si=qPD52yZiM1-xTwGu" target="_blank" rel="noopener noreferrer"
+    class="fab-btn" style="background:#FF0000;" aria-label="RangSar Studio on YouTube">
+    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+    <span class="fab-tooltip">YouTube</span>
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/share/1BBez7zFvJ/" target="_blank" rel="noopener noreferrer"
+    class="fab-btn" style="background:#1877F2;" aria-label="RangSar Studio on Facebook">
+    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+    <span class="fab-tooltip">Facebook</span>
+  </a>
+
   <!-- Instagram -->
   <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" rel="noopener noreferrer"
-    class="fab-btn" style="background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);" aria-label="Follow on Instagram">
+    class="fab-btn" style="background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);" aria-label="RangSar Studio on Instagram">
     <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
       <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
     </svg>
     <span class="fab-tooltip">Instagram</span>
   </a>
+
   <!-- WhatsApp -->
   <a href="https://wa.me/923217024241?text=Assalamu%20Alaikum!%20I%20found%20your%20store%20and%20would%20like%20to%20place%20an%20order%20%F0%9F%8C%B8" target="_blank" rel="noopener noreferrer"
     class="fab-btn" style="background:#25D366;" aria-label="Chat on WhatsApp">
@@ -357,6 +400,7 @@
     </svg>
     <span class="fab-tooltip">WhatsApp Order</span>
   </a>
+
 </div>
 
 <!-- ═══════════════════════════════════════════════
@@ -469,7 +513,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">Full Name *</label>
-            <input id="f-name" type="text" class="rs-input" placeholder="e.g. Ume Hani" />
+            <input id="f-name" type="text" class="rs-input" placeholder="e.g. Ayesha Raza" />
             <p id="err-name" class="field-error text-crimson-brand text-[11px] mt-1 hidden"></p>
           </div>
           <div>
@@ -480,7 +524,7 @@
         </div>
         <div>
           <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">Email Address *</label>
-          <input id="f-email" type="email" class="rs-input" placeholder="hani@email.com" />
+          <input id="f-email" type="email" class="rs-input" placeholder="ayesha@email.com" />
           <p id="err-email" class="field-error text-crimson-brand text-[11px] mt-1 hidden"></p>
         </div>
       </div>
@@ -530,8 +574,8 @@
         <!-- JazzCash instructions -->
         <div id="jazz-instructions" class="pay-instructions">
           <p class="text-xs font-bold text-gold-brand mb-1">JazzCash Account Details:</p>
-          <p class="text-xs text-ink dark:text-white font-semibold">03248556481</p>
-          <p class="text-xs text-ink dark:text-white">Account Name: UM Hani</p>
+          <p class="text-xs text-ink dark:text-white font-semibold">0324-8556481</p>
+          <p class="text-xs text-ink dark:text-white">Account Name: Um Hani</p>
           <p class="text-[11px] text-ink-soft dark:text-rose-light/60 mt-1.5">➊ Send payment &nbsp; ➋ Screenshot receipt &nbsp; ➌ WhatsApp us: 0321-7024241</p>
         </div>
 
@@ -621,6 +665,159 @@
 ════════════════════════════════════════════════ -->
 <script src="products.js"></script>
 <script src="cart.js"></script>
+
+<!-- ═══════════════════════════════════════════════
+     PWA — INSTALL APP BANNER
+     Shows automatically when browser supports it
+════════════════════════════════════════════════ -->
+
+<!-- Install banner (hidden by default, shown by JS when available) -->
+<div id="pwa-banner" style="
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: linear-gradient(135deg, #3d1a47, #9b2355);
+  padding: 14px 20px;
+  box-shadow: 0 -4px 24px rgba(155,35,85,0.3);
+  animation: slideUpBanner 0.4s ease;
+">
+  <div style="max-width:600px; margin:0 auto; display:flex; align-items:center; gap:14px; justify-content:space-between;">
+    <!-- Logo + text -->
+    <div style="display:flex; align-items:center; gap:12px;">
+      <img src="logo.png" alt="RangSar" style="width:44px; height:44px; border-radius:50%; border:2px solid rgba(201,160,101,0.5); flex-shrink:0;" />
+      <div>
+        <p style="color:#fff; font-weight:700; font-size:13px; margin:0; font-family:'Cormorant Garamond',serif; letter-spacing:0.03em;">
+          RangSar Studio
+        </p>
+        <p style="color:rgba(255,255,255,0.7); font-size:11px; margin:0; font-family:Inter,sans-serif;">
+          Add to home screen for quick access 📱
+        </p>
+      </div>
+    </div>
+    <!-- Buttons -->
+    <div style="display:flex; gap:8px; flex-shrink:0;">
+      <button id="pwa-dismiss" onclick="dismissPWA()" style="
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #fff; padding: 7px 14px;
+        border-radius: 8px; font-size: 11px;
+        font-weight: 600; cursor: pointer;
+        font-family: Inter, sans-serif;
+        letter-spacing: 0.05em; text-transform: uppercase;
+      ">Later</button>
+      <button id="pwa-install" onclick="installPWA()" style="
+        background: linear-gradient(135deg, #c9a065, #e0c080);
+        border: none; color: #1a0d11;
+        padding: 7px 16px; border-radius: 8px;
+        font-size: 11px; font-weight: 700;
+        cursor: pointer; font-family: Inter, sans-serif;
+        letter-spacing: 0.05em; text-transform: uppercase;
+      ">Install App ✦</button>
+    </div>
+  </div>
+</div>
+
+<!-- iOS instruction banner (shown for iPhone users who can't use the prompt) -->
+<div id="ios-banner" style="
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: linear-gradient(135deg, #3d1a47, #9b2355);
+  padding: 16px 20px;
+  box-shadow: 0 -4px 24px rgba(155,35,85,0.3);
+">
+  <div style="max-width:600px; margin:0 auto;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="logo.png" alt="RangSar" style="width:38px; height:38px; border-radius:50%; border:2px solid rgba(201,160,101,0.5);" />
+        <p style="color:#fff; font-weight:700; font-size:13px; margin:0; font-family:'Cormorant Garamond',serif;">
+          Install RangSar Studio
+        </p>
+      </div>
+      <button onclick="dismissIOS()" style="
+        background:rgba(255,255,255,0.15); border:none; color:#fff;
+        width:28px; height:28px; border-radius:50%; font-size:14px;
+        cursor:pointer; display:flex; align-items:center; justify-content:center;">✕</button>
+    </div>
+    <div style="background:rgba(255,255,255,0.1); border-radius:10px; padding:10px 14px;">
+      <p style="color:rgba(255,255,255,0.9); font-size:12px; margin:0; font-family:Inter,sans-serif; line-height:1.8;">
+        1. Tap the <strong style="color:#c9a065;">Share</strong> button
+        <span style="font-size:15px;">⎋</span> at the bottom of Safari<br/>
+        2. Scroll down and tap <strong style="color:#c9a065;">"Add to Home Screen"</strong><br/>
+        3. Tap <strong style="color:#c9a065;">"Add"</strong> — done! 🌸
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes slideUpBanner {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+</style>
+
+<script>
+  /* ── PWA Install Logic ── */
+  let deferredPrompt = null;
+
+  // Detect iOS
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone;
+
+  // Android/Chrome — capture install prompt
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Only show if user hasn't dismissed before
+    if (!localStorage.getItem('rs-pwa-dismissed')) {
+      setTimeout(() => {
+        document.getElementById('pwa-banner').style.display = 'block';
+      }, 4000); // Show after 4 seconds
+    }
+  });
+
+  function installPWA() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((result) => {
+      if (result.outcome === 'accepted') {
+        document.getElementById('pwa-banner').style.display = 'none';
+        showToast('RangSar Studio installed! 🌸');
+      }
+      deferredPrompt = null;
+    });
+  }
+
+  function dismissPWA() {
+    document.getElementById('pwa-banner').style.display = 'none';
+    localStorage.setItem('rs-pwa-dismissed', '1');
+  }
+
+  function dismissIOS() {
+    document.getElementById('ios-banner').style.display = 'none';
+    localStorage.setItem('rs-pwa-dismissed', '1');
+  }
+
+  // iOS — show manual instruction banner
+  if (isIOS && !isInStandaloneMode && !localStorage.getItem('rs-pwa-dismissed')) {
+    setTimeout(() => {
+      document.getElementById('ios-banner').style.display = 'block';
+    }, 5000);
+  }
+
+  // Register service worker (makes app work offline)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('RangSar PWA ready ✦'))
+        .catch(() => console.log('SW not available'));
+    });
+  }
+</script>
 
 </body>
 </html>
