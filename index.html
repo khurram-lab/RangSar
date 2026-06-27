@@ -339,6 +339,86 @@
         <p class="text-xs text-ink dark:text-white">Ghulam M Abad,<br/>Faisalabad</p>
       </div>
     </div>
+
+    <!-- ── Install App Banner (always visible) ── -->
+    <div id="install-app-section" class="mt-8 rs-reveal">
+      <div class="rounded-2xl overflow-hidden border border-rose-dusty/20"
+        style="background:linear-gradient(135deg,#3d1a47 0%,#9b2355 100%);">
+        <div class="flex flex-col sm:flex-row items-center gap-5 p-6 sm:p-8">
+
+          <!-- Left: logo + text -->
+          <div class="flex items-center gap-4 flex-1">
+            <img src="logo.png" alt="RangSar"
+              style="width:60px;height:60px;border-radius:50%;border:2px solid rgba(201,160,101,0.5);flex-shrink:0;" />
+            <div class="text-left">
+              <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin:0;line-height:1.2;">
+                Get the RangSar App
+              </p>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.65);margin:4px 0 0;font-family:Inter,sans-serif;line-height:1.5;">
+                📱 Install on your home screen — shop anytime, anywhere.<br/>
+                Works on iPhone & Android. Free. No app store needed!
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: buttons -->
+          <div class="flex flex-col gap-2 flex-shrink-0 w-full sm:w-auto">
+            <!-- Android / Chrome install button -->
+            <button id="permanent-install-btn" onclick="triggerInstall()"
+              style="
+                background:linear-gradient(135deg,#c9a065,#e0c080);
+                border:none; color:#1a0d11;
+                padding:11px 28px; border-radius:10px;
+                font-size:12px; font-weight:700;
+                cursor:pointer; font-family:Inter,sans-serif;
+                letter-spacing:0.06em; text-transform:uppercase;
+                display:flex; align-items:center; justify-content:center; gap:7px;
+                transition:transform 0.2s, box-shadow 0.2s;
+                box-shadow:0 4px 16px rgba(201,160,101,0.3);
+                width:100%;
+              "
+              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(201,160,101,0.4)'"
+              onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(201,160,101,0.3)'">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Install App ✦
+            </button>
+
+            <!-- iPhone manual instructions trigger -->
+            <button onclick="showIOSSteps()"
+              style="
+                background:rgba(255,255,255,0.1);
+                border:1px solid rgba(255,255,255,0.25);
+                color:rgba(255,255,255,0.8);
+                padding:9px 28px; border-radius:10px;
+                font-size:11px; font-weight:600;
+                cursor:pointer; font-family:Inter,sans-serif;
+                letter-spacing:0.05em; text-transform:uppercase;
+                width:100%; transition:background 0.2s;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.18)'"
+              onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+              📱 iPhone Instructions
+            </button>
+          </div>
+        </div>
+
+        <!-- iPhone steps (hidden by default, shown on button click) -->
+        <div id="ios-steps-inline" style="display:none;
+          background:rgba(0,0,0,0.2); padding:14px 20px;
+          border-top:1px solid rgba(255,255,255,0.1);">
+          <p style="color:rgba(255,255,255,0.9);font-size:12px;font-family:Inter,sans-serif;line-height:2;margin:0;">
+            <strong style="color:#c9a065;">On iPhone (Safari only):</strong><br/>
+            1️⃣ Open this website in <strong>Safari browser</strong> (not Chrome)<br/>
+            2️⃣ Tap the <strong style="color:#c9a065;">Share button ⎋</strong> at the bottom of the screen<br/>
+            3️⃣ Scroll down and tap <strong style="color:#c9a065;">"Add to Home Screen"</strong><br/>
+            4️⃣ Tap <strong style="color:#c9a065;">"Add"</strong> — RangSar icon appears on your home screen! 🌸
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -667,6 +747,383 @@
 <script src="cart.js"></script>
 
 <!-- ═══════════════════════════════════════════════
+     AI ASSISTANT CHATBOT — RangSar Studio
+════════════════════════════════════════════════ -->
+
+<!-- Chat toggle button (bottom left) -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Chat with RangSar AI" style="
+  position: fixed;
+  bottom: 24px; left: 20px;
+  z-index: 500;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  border: none; cursor: pointer;
+  background: linear-gradient(135deg, #3d1a47, #9b2355);
+  box-shadow: 0 4px 20px rgba(155,35,85,0.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  <!-- Chat icon -->
+  <svg id="chat-icon-open" width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+  </svg>
+  <!-- Close icon (hidden) -->
+  <svg id="chat-icon-close" width="22" height="22" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24" style="display:none;">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+  </svg>
+  <!-- Notification dot -->
+  <span id="chat-dot" style="
+    position:absolute; top:2px; right:2px;
+    width:12px; height:12px; border-radius:50%;
+    background:#c9a065; border:2px solid #fff;
+    animation: pulseDot 2s infinite;
+  "></span>
+</button>
+
+<!-- Chat Window -->
+<div id="chat-window" style="
+  position: fixed;
+  bottom: 90px; left: 20px;
+  width: min(360px, calc(100vw - 40px));
+  height: min(520px, 70vh);
+  z-index: 500;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(61,26,71,0.35);
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(212,132,158,0.2);
+  animation: chatSlideUp 0.3s ease;
+">
+
+  <!-- Chat Header -->
+  <div style="
+    background: linear-gradient(135deg, #3d1a47, #9b2355);
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+  ">
+    <img src="logo.png" alt="RangSar" style="width:36px;height:36px;border-radius:50%;border:2px solid rgba(201,160,101,0.5);flex-shrink:0;" />
+    <div style="flex:1;">
+      <p style="color:#fff;font-weight:700;font-size:13px;margin:0;font-family:'Cormorant Garamond',serif;">RangSar AI Assistant</p>
+      <p style="color:rgba(255,255,255,0.65);font-size:10px;margin:0;font-family:Inter,sans-serif;display:flex;align-items:center;gap:4px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;"></span>
+        Online — Ask me anything about our collection
+      </p>
+    </div>
+    <button onclick="toggleChat()" style="background:rgba(255,255,255,0.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">✕</button>
+  </div>
+
+  <!-- Messages area -->
+  <div id="chat-messages" style="
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fdf8f9;
+    scroll-behavior: smooth;
+  ">
+    <!-- Welcome message -->
+    <div class="chat-msg-bot" style="display:flex;gap:8px;align-items:flex-start;">
+      <img src="logo.png" style="width:26px;height:26px;border-radius:50%;flex-shrink:0;margin-top:2px;" />
+      <div style="background:#fff;border:1px solid rgba(212,132,158,0.2);border-radius:4px 14px 14px 14px;padding:10px 13px;max-width:85%;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <p style="margin:0;font-size:12.5px;color:#1a0d11;line-height:1.6;font-family:Inter,sans-serif;">
+          Assalamu Alaikum! 🌸 I'm your RangSar AI Assistant.<br/><br/>
+          I can help you with our <strong>collection, sizes, prices, delivery</strong>, and <strong>orders</strong>. What would you like to know?
+        </p>
+      </div>
+    </div>
+
+    <!-- Quick suggestion buttons -->
+    <div id="quick-suggestions" style="display:flex;flex-wrap:wrap;gap:6px;padding-left:34px;">
+      <button onclick="sendQuickMsg('What collections do you have?')" class="quick-chip">👗 Collections</button>
+      <button onclick="sendQuickMsg('What are your delivery charges?')" class="quick-chip">🚚 Delivery</button>
+      <button onclick="sendQuickMsg('How do I place an order?')" class="quick-chip">🛍️ How to Order</button>
+      <button onclick="sendQuickMsg('Do you have discount codes?')" class="quick-chip">💸 Discounts</button>
+    </div>
+  </div>
+
+  <!-- Input area -->
+  <div style="
+    padding: 10px 12px;
+    border-top: 1px solid rgba(212,132,158,0.15);
+    display: flex; gap: 8px; align-items: flex-end;
+    background: #fff; flex-shrink: 0;
+  ">
+    <textarea
+      id="chat-input"
+      placeholder="Ask about our collection, sizes, delivery..."
+      onkeydown="handleChatKey(event)"
+      rows="1"
+      oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,80)+'px'"
+      style="
+        flex:1; border:1.5px solid rgba(212,132,158,0.3);
+        border-radius:10px; padding:8px 11px;
+        font-size:12.5px; font-family:Inter,sans-serif;
+        color:#1a0d11; resize:none; outline:none;
+        background:#fdf8f9; line-height:1.5;
+        transition:border-color 0.2s;
+      "
+      onfocus="this.style.borderColor='#9b2355'"
+      onblur="this.style.borderColor='rgba(212,132,158,0.3)'"
+    ></textarea>
+    <button onclick="sendChatMessage()" id="chat-send-btn" style="
+      width:38px; height:38px; border-radius:50%; border:none;
+      background:linear-gradient(135deg,#9b2355,#3d1a47);
+      color:#fff; cursor:pointer; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform 0.2s, opacity 0.2s;
+    " onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      <svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+      </svg>
+    </button>
+  </div>
+
+</div>
+
+<!-- Chatbot styles -->
+<style>
+  .quick-chip {
+    background: #fff;
+    border: 1.5px solid rgba(212,132,158,0.35);
+    color: #9b2355;
+    font-size: 10.5px;
+    font-weight: 600;
+    font-family: Inter, sans-serif;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .quick-chip:hover {
+    background: #9b2355;
+    color: #fff;
+    border-color: #9b2355;
+  }
+  @keyframes chatSlideUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes pulseDot {
+    0%,100% { transform:scale(1); opacity:1; }
+    50%      { transform:scale(1.4); opacity:0.7; }
+  }
+  @keyframes typingBounce {
+    0%,80%,100% { transform:translateY(0); }
+    40%          { transform:translateY(-6px); }
+  }
+  #chat-messages::-webkit-scrollbar { width:4px; }
+  #chat-messages::-webkit-scrollbar-thumb { background:#d4849e; border-radius:4px; }
+</style>
+
+<!-- Chatbot JavaScript -->
+<script>
+  /* ── Chat State ── */
+  let chatOpen      = false;
+  let chatHistory   = [];   // Keeps conversation context
+  let chatWaiting   = false;
+
+  /* ── Toggle chat window ── */
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win      = document.getElementById('chat-window');
+    const iconOpen = document.getElementById('chat-icon-open');
+    const iconClose= document.getElementById('chat-icon-close');
+    const dot      = document.getElementById('chat-dot');
+
+    win.style.display      = chatOpen ? 'flex' : 'none';
+    iconOpen.style.display = chatOpen ? 'none' : 'block';
+    iconClose.style.display= chatOpen ? 'block' : 'none';
+    if (dot) dot.style.display = 'none'; // hide dot once opened
+
+    if (chatOpen) {
+      setTimeout(() => document.getElementById('chat-input')?.focus(), 200);
+      scrollChatToBottom();
+    }
+  }
+
+  /* ── Send on Enter (Shift+Enter = new line) ── */
+  function handleChatKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendChatMessage();
+    }
+  }
+
+  /* ── Quick suggestion chips ── */
+  function sendQuickMsg(text) {
+    document.getElementById('quick-suggestions')?.remove();
+    document.getElementById('chat-input').value = text;
+    sendChatMessage();
+  }
+
+  /* ── Send message to AI ── */
+  async function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const text  = input?.value.trim();
+    if (!text || chatWaiting) return;
+
+    // Clear input
+    input.value = '';
+    input.style.height = 'auto';
+    document.getElementById('quick-suggestions')?.remove();
+
+    // Show user message
+    appendMessage('user', text);
+
+    // Add to history
+    chatHistory.push({ role: 'user', content: text });
+
+    // Show typing indicator
+    chatWaiting = true;
+    showTyping();
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: `You are the friendly AI shopping assistant for RangSar Studio — a premium Pakistani fashion brand based in Faisalabad. Your name is "Rang" 🌸
+
+BRAND INFO:
+- Name: RangSar Studio
+- Tagline: "Elegance in Every Thread"
+- Speciality: Premium Pakistani fashion — lawns, embroideries, cambric suits, printed fabrics, accessories
+- Instagram: @rangsar.studio
+- WhatsApp: 0321-7024241
+- Email: rangsar.pk@gmail.com
+- Location: Ghulam M Abad, Faisalabad
+
+PRODUCTS & PRICES (current collection):
+- Premium Rose Solid Lawn — PKR 4,200 (Sizes: S,M,L,XL,XXL)
+- Floral Printed Chiffon — PKR 3,850 (Sizes: S,M,L,XL)
+- Royal Cambric Embroidered Suite — PKR 8,900 (Sizes: S,M,L,XL,XXL) — Exclusive
+- Crimson Khaddar Winter Edit — PKR 3,600 (Sizes: M,L,XL,XXL) — Sale
+- Plum Festive Embroidery — PKR 11,500 (Sizes: S,M,L,XL) — Only 3 Left!
+- Boho Block Printed Lawn — PKR 3,200 (Sizes: S,M,L,XL,XXL)
+- Dusty Rose Formal Suit — PKR 6,800 (Sizes: S,M,L,XL)
+- Gold Drop Earrings — PKR 1,800 — Accessories
+
+DELIVERY:
+- PKR 250 delivery charge
+- FREE delivery on orders above PKR 5,000
+
+PAYMENT:
+- JazzCash: 0324-8556481 (Um Hani)
+- Bank: Meezan Bank, Account: 21010102725045, IBAN: PK37MEZN0021010102725045 (UME HANI)
+- After payment, WhatsApp receipt to 0321-7024241 — same day dispatch InshAllah!
+
+DISCOUNT CODES:
+- RANGSAR10 = 10% off
+- WELCOME = 15% off
+- EID2025 = 20% off
+- FLAT500 = PKR 500 off
+- VIP = 25% off
+
+HOW TO ORDER:
+1. Browse products on website
+2. Select size and click "Add to Cart"
+3. Go to cart and click "Proceed to Checkout"
+4. Fill in name, phone, address
+5. Choose JazzCash or Bank Deposit
+6. Place order then send payment receipt on WhatsApp
+
+YOUR PERSONALITY:
+- Warm, friendly, helpful — like a knowledgeable shop assistant
+- Use occasional Urdu words naturally (InshAllah, JazakAllah, Mashallah)
+- Keep answers short and clear — 2-4 sentences max unless more detail is needed
+- Use emojis occasionally 🌸✨
+- Always encourage customer to visit the website or WhatsApp for more help
+- Respond in the same language customer uses (Urdu or English)
+- NEVER make up products or prices not listed above`,
+          messages: chatHistory
+        })
+      });
+
+      const data   = await response.json();
+      const reply  = data.content?.[0]?.text || "I'm sorry, I couldn't get a response. Please WhatsApp us at 0321-7024241 🌸";
+
+      // Remove typing indicator
+      removeTyping();
+      chatWaiting = false;
+
+      // Show AI reply
+      appendMessage('bot', reply);
+
+      // Add to history (keep last 10 messages to avoid token limits)
+      chatHistory.push({ role: 'assistant', content: reply });
+      if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+
+    } catch (err) {
+      removeTyping();
+      chatWaiting = false;
+      appendMessage('bot', "Sorry, I'm having trouble connecting right now 😔 Please WhatsApp us directly at 0321-7024241 and we'll be happy to help! 🌸");
+    }
+  }
+
+  /* ── Append a message bubble ── */
+  function appendMessage(role, text) {
+    const container = document.getElementById('chat-messages');
+    const isBot     = role === 'bot';
+    const div       = document.createElement('div');
+
+    div.style.cssText = `display:flex; gap:8px; align-items:flex-start; ${isBot ? '' : 'flex-direction:row-reverse;'}`;
+
+    // Convert markdown-like **bold** and line breaks
+    const formatted = text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br/>');
+
+    div.innerHTML = isBot
+      ? `<img src="logo.png" style="width:26px;height:26px;border-radius:50%;flex-shrink:0;margin-top:2px;" />
+         <div style="background:#fff;border:1px solid rgba(212,132,158,0.2);border-radius:4px 14px 14px 14px;padding:10px 13px;max-width:85%;box-shadow:0 1px 4px rgba(0,0,0,0.05);">
+           <p style="margin:0;font-size:12.5px;color:#1a0d11;line-height:1.65;font-family:Inter,sans-serif;">${formatted}</p>
+         </div>`
+      : `<div style="background:linear-gradient(135deg,#9b2355,#3d1a47);border-radius:14px 4px 14px 14px;padding:10px 13px;max-width:85%;">
+           <p style="margin:0;font-size:12.5px;color:#fff;line-height:1.65;font-family:Inter,sans-serif;">${formatted}</p>
+         </div>`;
+
+    container.appendChild(div);
+    scrollChatToBottom();
+  }
+
+  /* ── Typing indicator ── */
+  function showTyping() {
+    const container = document.getElementById('chat-messages');
+    const div       = document.createElement('div');
+    div.id          = 'chat-typing';
+    div.style.cssText = 'display:flex;gap:8px;align-items:flex-start;';
+    div.innerHTML   = `
+      <img src="logo.png" style="width:26px;height:26px;border-radius:50%;flex-shrink:0;" />
+      <div style="background:#fff;border:1px solid rgba(212,132,158,0.2);border-radius:4px 14px 14px 14px;padding:11px 15px;box-shadow:0 1px 4px rgba(0,0,0,0.05);">
+        <div style="display:flex;gap:4px;align-items:center;height:14px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#d4849e;animation:typingBounce 1.2s 0s infinite;display:block;"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#d4849e;animation:typingBounce 1.2s 0.2s infinite;display:block;"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#d4849e;animation:typingBounce 1.2s 0.4s infinite;display:block;"></span>
+        </div>
+      </div>`;
+    container.appendChild(div);
+    scrollChatToBottom();
+  }
+
+  function removeTyping() {
+    document.getElementById('chat-typing')?.remove();
+  }
+
+  function scrollChatToBottom() {
+    const c = document.getElementById('chat-messages');
+    if (c) setTimeout(() => c.scrollTop = c.scrollHeight, 50);
+  }
+</script>
+
+<!-- ═══════════════════════════════════════════════
      PWA — INSTALL APP BANNER
      Shows automatically when browser supports it
 ════════════════════════════════════════════════ -->
@@ -772,13 +1229,33 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    // Only show if user hasn't dismissed before
-    if (!localStorage.getItem('rs-pwa-dismissed')) {
+    // Show banner after 5 seconds (always — no permanent dismiss)
+    const lastDismissed = localStorage.getItem('rs-pwa-dismissed-time');
+    const tenMinutes    = 10 * 60 * 1000;
+    const shouldShow    = !lastDismissed || (Date.now() - parseInt(lastDismissed)) > tenMinutes;
+    if (shouldShow) {
       setTimeout(() => {
         document.getElementById('pwa-banner').style.display = 'block';
-      }, 4000); // Show after 4 seconds
+      }, 5000);
     }
+    // Always show the permanent install button
+    const permBtn = document.getElementById('permanent-install-btn');
+    if (permBtn) permBtn.style.display = 'flex';
   });
+
+  // Called from the permanent Install App button
+  function triggerInstall() {
+    if (deferredPrompt) {
+      // Android/Chrome — trigger native prompt
+      installPWA();
+    } else if (isIOS) {
+      // iPhone — show inline steps
+      showIOSSteps();
+    } else {
+      // Already installed or not supported
+      showIOSSteps(); // show manual steps as fallback
+    }
+  }
 
   function installPWA() {
     if (!deferredPrompt) return;
@@ -786,27 +1263,47 @@
     deferredPrompt.userChoice.then((result) => {
       if (result.outcome === 'accepted') {
         document.getElementById('pwa-banner').style.display = 'none';
-        showToast('RangSar Studio installed! 🌸');
+        document.getElementById('install-app-section').style.display = 'none';
+        showToast('RangSar Studio installed on your home screen! 🌸');
       }
       deferredPrompt = null;
     });
   }
 
+  // "Later" — only hides for 10 minutes, then shows again next visit
   function dismissPWA() {
     document.getElementById('pwa-banner').style.display = 'none';
-    localStorage.setItem('rs-pwa-dismissed', '1');
+    localStorage.setItem('rs-pwa-dismissed-time', Date.now().toString());
   }
 
   function dismissIOS() {
     document.getElementById('ios-banner').style.display = 'none';
-    localStorage.setItem('rs-pwa-dismissed', '1');
+    localStorage.setItem('rs-pwa-dismissed-time', Date.now().toString());
   }
 
-  // iOS — show manual instruction banner
-  if (isIOS && !isInStandaloneMode && !localStorage.getItem('rs-pwa-dismissed')) {
-    setTimeout(() => {
-      document.getElementById('ios-banner').style.display = 'block';
-    }, 5000);
+  // Show/hide iPhone steps inside the permanent banner
+  function showIOSSteps() {
+    const el = document.getElementById('ios-steps-inline');
+    if (!el) return;
+    const isVisible = el.style.display !== 'none';
+    el.style.display = isVisible ? 'none' : 'block';
+  }
+
+  // iOS — show floating instruction banner
+  if (isIOS && !isInStandaloneMode) {
+    const lastDismissed = localStorage.getItem('rs-pwa-dismissed-time');
+    const tenMinutes    = 10 * 60 * 1000;
+    const shouldShow    = !lastDismissed || (Date.now() - parseInt(lastDismissed)) > tenMinutes;
+    if (shouldShow) {
+      setTimeout(() => {
+        document.getElementById('ios-banner').style.display = 'block';
+      }, 5000);
+    }
+  }
+
+  // Hide install section if already installed
+  if (isInStandaloneMode) {
+    document.getElementById('install-app-section').style.display = 'none';
   }
 
   // Register service worker (makes app work offline)
