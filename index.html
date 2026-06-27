@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RangSar Studio — Elegance in Every Thread</title>
+  <meta name="description" content="RangSar Studio — Premium Pakistani fashion. Handcrafted lawns, embroideries & exclusive designs. Elegance in Every Thread." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Cormorant Garamond (feminine luxury) + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind brand tokens -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            crimson: { brand: '#9b2355', light: '#b8326b', muted: '#fbeef2' },
+            plum:    { brand: '#3d1a47', light: '#5c2d6e', muted: '#f5eff7' },
+            gold:    { brand: '#c9a065', light: '#dbb884', muted: '#fcf6ed' },
+            rose:    { brand: '#e8a4b8', dusty: '#d4849e', light: '#f7e7eb' },
+            blush:   { DEFAULT: '#fdf0f3', dark: '#1c1013' },
+            ink:     { DEFAULT: '#1a0d11', soft: '#4a353b' },
+          },
+          fontFamily: {
+            display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            body:    ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- Brand Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- ═══ PWA — Install as App on Phone Home Screen ═══ -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#9b2355" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="RangSar Studio" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  <link rel="icon" type="image/png" href="logo.png" />
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     ANNOUNCEMENT MARQUEE
+════════════════════════════════════════════════ -->
+<div class="bg-crimson-brand text-white text-[11px] font-medium tracking-widest py-2 overflow-hidden">
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      &nbsp;&nbsp;✦ Elegance in Every Thread &nbsp;·&nbsp; Free Delivery on Orders Above PKR 5,000 &nbsp;·&nbsp; New Festive Collection Live &nbsp;·&nbsp; Exclusive Cambric Suits — Limited Pieces &nbsp;·&nbsp; WhatsApp: 0321-7024241 &nbsp;&nbsp;✦ Elegance in Every Thread &nbsp;·&nbsp; Free Delivery on Orders Above PKR 5,000 &nbsp;·&nbsp; New Festive Collection Live &nbsp;·&nbsp; Exclusive Cambric Suits — Limited Pieces &nbsp;·&nbsp; WhatsApp: 0321-7024241 &nbsp;&nbsp;
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     STICKY NAVIGATION
+════════════════════════════════════════════════ -->
+<nav id="main-nav" class="nav-glass fixed top-8 left-0 right-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+
+    <!-- Logo — RangSar Studio brand image -->
+    <a href="#" class="flex items-center flex-shrink-0" aria-label="RangSar Studio — Home">
+      <img
+        src="logo.png"
+        alt="RangSar Studio — Elegance in Every Thread"
+        class="h-12 w-12 object-contain rounded-full drop-shadow-sm"
+        style="filter: drop-shadow(0 1px 4px rgba(155,35,85,0.15));"
+      />
+      <div class="leading-none ml-2">
+        <span class="font-display font-bold text-xl tracking-wide">
+          <span class="brand-rang">Rang</span><span class="brand-sar">Sar</span>
+        </span>
+        <p class="text-[9px] uppercase tracking-[0.2em] text-gold-brand font-medium -mt-0.5">Elegance in Every Thread</p>
+      </div>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="nav-links-desktop hidden md:flex items-center gap-7">
+      <a href="#products" onclick="setFilter('all', event)" class="text-[11px] uppercase tracking-widest font-semibold text-ink dark:text-white hover:text-crimson-brand dark:hover:text-rose-brand transition-colors">All</a>
+      <a href="#products" onclick="setFilter('solids', event)" class="text-[11px] uppercase tracking-widest font-semibold text-ink dark:text-white hover:text-crimson-brand transition-colors">Solids</a>
+      <a href="#products" onclick="setFilter('printed', event)" class="text-[11px] uppercase tracking-widest font-semibold text-ink dark:text-white hover:text-crimson-brand transition-colors">Printed</a>
+      <a href="#products" onclick="setFilter('exclusive', event)" class="text-[11px] uppercase tracking-widest font-semibold text-ink dark:text-white hover:text-crimson-brand transition-colors">Exclusive</a>
+      <a href="#testimonials" class="text-[11px] uppercase tracking-widest font-semibold text-ink dark:text-white hover:text-crimson-brand transition-colors">Reviews</a>
+      <a href="#contact" class="text-[11px] uppercase tracking-widest font-semibold text-ink dark:text-white hover:text-crimson-brand transition-colors">Contact</a>
+    </div>
+
+    <!-- Right controls -->
+    <div class="flex items-center gap-3 flex-shrink-0">
+
+      <!-- Instagram nav icon -->
+      <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" rel="noopener noreferrer"
+        aria-label="RangSar Studio on Instagram"
+        class="p-1.5 rounded-lg hover:bg-rose-light/40 dark:hover:bg-rose-brand/10 transition-colors">
+        <svg class="w-4 h-4" fill="url(#ig-nav-grad)" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ig-nav-grad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#f9ce34"/>
+              <stop offset="50%" style="stop-color:#ee2a7b"/>
+              <stop offset="100%" style="stop-color:#6228d7"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+      </a>
+
+      <!-- Dark/Light toggle -->
+      <div class="flex items-center gap-1.5">
+        <span id="theme-label" class="text-[10px] uppercase tracking-widest font-medium text-ink-soft dark:text-rose-light/50 hidden sm:block">Light</span>
+        <div class="toggle-track" id="theme-toggle" onclick="toggleTheme()" role="button" aria-label="Toggle dark mode" tabindex="0">
+          <div class="toggle-thumb">
+            <span id="theme-icon">☀️</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cart -->
+      <button onclick="openCart()" class="relative p-2 rounded-xl hover:bg-rose-light/40 dark:hover:bg-rose-brand/10 transition-colors" aria-label="Open shopping cart">
+        <svg class="w-5 h-5 text-ink dark:text-white" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/>
+        </svg>
+        <span id="cart-badge" class="hidden">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Spacer for announcement bar + nav -->
+<div class="h-24"></div>
+
+<!-- ═══════════════════════════════════════════════
+     HERO SECTION
+════════════════════════════════════════════════ -->
+<section class="hero-bg min-h-[88vh] flex items-center justify-center pt-10 pb-20 px-4 relative overflow-hidden">
+
+  <!-- Large watermark RS -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-[0.025] dark:opacity-[0.015]">
+    <span class="font-display font-black text-[50vw] leading-none" style="color:#9b2355;">RS</span>
+  </div>
+
+  <!-- Soft blush orbs -->
+  <div class="absolute top-10 left-10 w-72 h-72 rounded-full opacity-30 blur-3xl pointer-events-none" style="background:radial-gradient(circle,#e8a4b8,transparent)"></div>
+  <div class="absolute bottom-10 right-10 w-64 h-64 rounded-full opacity-20 blur-3xl pointer-events-none" style="background:radial-gradient(circle,#c9a065,transparent)"></div>
+
+  <div class="relative z-10 max-w-4xl mx-auto text-center">
+
+    <!-- Eyebrow -->
+    <div class="inline-flex items-center gap-2 mb-6">
+      <span class="text-[11px] uppercase font-semibold tracking-[0.22em] text-gold-brand px-4 py-2 rounded-full border border-rose-dusty/30 bg-white/50 dark:bg-black/20">
+        ✦ Premium Pakistani Atelier ✦
+      </span>
+    </div>
+
+    <!-- Main headline -->
+    <h1 class="font-display font-black text-5xl sm:text-7xl lg:text-8xl text-ink dark:text-white leading-[1.05] mb-6">
+      Where Tradition<br/>
+      <em class="not-italic" style="color:#9b2355;">Meets Elegance</em>
+    </h1>
+
+    <p class="text-sm sm:text-base text-ink-soft dark:text-rose-light/65 max-w-lg mx-auto font-light leading-relaxed mb-4">
+      Handcrafted Pakistani fashion — premium lawns, breathtaking embroideries, and exclusive designs for the modern woman who honours her heritage.
+    </p>
+
+    <!-- Tagline -->
+    <p class="font-display italic text-xl text-gold-brand mb-10">✦ Elegance in Every Thread ✦</p>
+
+    <!-- CTAs -->
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-14">
+      <a href="#products"
+        class="px-9 py-4 rounded-xl text-white text-xs font-bold uppercase tracking-widest transition-all hover:-translate-y-0.5 hover:shadow-xl"
+        style="background:linear-gradient(135deg,#9b2355,#b8326b);box-shadow:0 6px 20px rgba(155,35,85,0.3);">
+        Explore Collection
+      </a>
+      <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" rel="noopener noreferrer"
+        class="px-9 py-4 rounded-xl text-ink dark:text-white text-xs font-bold uppercase tracking-widest border border-ink/20 dark:border-white/20 hover:bg-ink/5 dark:hover:bg-white/8 transition-all hover:-translate-y-0.5 flex items-center gap-2">
+        <svg class="w-4 h-4" fill="url(#ig-hero)" viewBox="0 0 24 24">
+          <defs>
+            <linearGradient id="ig-hero" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#f9ce34"/><stop offset="50%" style="stop-color:#ee2a7b"/><stop offset="100%" style="stop-color:#6228d7"/>
+            </linearGradient>
+          </defs>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        @rangsar.studio
+      </a>
+    </div>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-3 gap-4 max-w-xs mx-auto">
+      <div class="text-center">
+        <p class="font-display font-black text-3xl text-crimson-brand">12K+</p>
+        <p class="text-[10px] uppercase tracking-widest text-ink-soft dark:text-rose-light/50 mt-0.5">Happy Clients</p>
+      </div>
+      <div class="text-center border-x border-rose-dusty/20">
+        <p class="font-display font-black text-3xl text-crimson-brand">200+</p>
+        <p class="text-[10px] uppercase tracking-widest text-ink-soft dark:text-rose-light/50 mt-0.5">Designs</p>
+      </div>
+      <div class="text-center">
+        <p class="font-display font-black text-3xl text-crimson-brand">8 Yrs</p>
+        <p class="text-[10px] uppercase tracking-widest text-ink-soft dark:text-rose-light/50 mt-0.5">Of Craft</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     PRODUCTS SECTION
+════════════════════════════════════════════════ -->
+<section id="products" class="max-w-7xl mx-auto px-4 sm:px-6 py-20">
+
+  <!-- Section header -->
+  <div class="text-center mb-12 rs-reveal">
+    <div class="ornament-line mb-4">
+      <span class="font-display italic text-sm text-gold-brand px-3">Our Collection</span>
+    </div>
+    <h2 class="font-display font-bold text-4xl sm:text-5xl text-ink dark:text-white mb-3">
+      Curated <span class="gold-shimmer">Masterpieces</span>
+    </h2>
+    <p class="text-sm text-ink-soft dark:text-rose-light/60 max-w-md mx-auto font-light">
+      Each piece is thoughtfully crafted — premium fabrics, rich colours, and intricate detailing.
+    </p>
+  </div>
+
+  <!-- Filter tabs -->
+  <div class="flex flex-wrap justify-center gap-2.5 mb-10 rs-reveal">
+    <button class="filter-tab px-5 py-2 text-[11px] uppercase tracking-widest rounded-full active" data-filter="all" onclick="setFilter('all', event)">All Pieces</button>
+    <button class="filter-tab px-5 py-2 text-[11px] uppercase tracking-widest rounded-full" data-filter="solids" onclick="setFilter('solids', event)">Solids</button>
+    <button class="filter-tab px-5 py-2 text-[11px] uppercase tracking-widest rounded-full" data-filter="printed" onclick="setFilter('printed', event)">Printed</button>
+    <button class="filter-tab px-5 py-2 text-[11px] uppercase tracking-widest rounded-full" data-filter="exclusive" onclick="setFilter('exclusive', event)">Exclusive</button>
+    <button class="filter-tab px-5 py-2 text-[11px] uppercase tracking-widest rounded-full" data-filter="accessories" onclick="setFilter('accessories', event)">Accessories</button>
+  </div>
+
+  <!-- Product grid -->
+  <div id="product-grid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6"></div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════════════ -->
+<section id="testimonials" class="py-20 px-4 sm:px-6 border-y border-rose-dusty/10" style="background:rgba(253,240,243,0.4)">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 rs-reveal">
+      <div class="ornament-line mb-4"><span class="font-display italic text-sm text-gold-brand px-3">Loved By Thousands</span></div>
+      <h2 class="font-display font-bold text-4xl text-ink dark:text-white">Voices of <span class="gold-shimmer">Elegance</span></h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6 rs-reveal">
+      <div class="testi-card card-body">
+        <div class="text-gold-brand text-base mb-3">★★★★★</div>
+        <p class="text-sm font-light italic leading-relaxed text-ink-soft dark:text-rose-light/75 mb-5">
+          "The Rose Solid suit is absolutely gorgeous. The fabric quality is unlike anything I've bought online — silky, well-stitched, and the colour is exactly as shown."
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-rose-dusty/10">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs text-white" style="background:#9b2355">A</div>
+          <div>
+            <p class="text-sm font-semibold text-ink dark:text-white">Ayesha Raza</p>
+            <p class="text-[11px] text-ink-soft dark:text-rose-light/50">Lahore, Punjab</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card card-body">
+        <div class="text-gold-brand text-base mb-3">★★★★★</div>
+        <p class="text-sm font-light italic leading-relaxed text-ink-soft dark:text-rose-light/75 mb-5">
+          "Ordered the Floral Printed Chiffon for Eid and received SO many compliments. Delivery was fast and packaging was beautiful. RangSar never disappoints!"
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-rose-dusty/10">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs text-white" style="background:#3d1a47">S</div>
+          <div>
+            <p class="text-sm font-semibold text-ink dark:text-white">Sana Malik</p>
+            <p class="text-[11px] text-ink-soft dark:text-rose-light/50">Karachi, Sindh</p>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card card-body">
+        <div class="text-gold-brand text-base mb-3">★★★★★</div>
+        <p class="text-sm font-light italic leading-relaxed text-ink-soft dark:text-rose-light/75 mb-5">
+          "The Plum Embroidery is a work of art. Wore it to a wedding and felt like royalty. The detail is so intricate — every rupee worth it. Will order again InshAllah!"
+        </p>
+        <div class="flex items-center gap-3 pt-4 border-t border-rose-dusty/10">
+          <div class="w-8 h-8 rounded-full flex items-center justify-center font-bold text-xs text-white" style="background:#c9a065">Z</div>
+          <div>
+            <p class="text-sm font-semibold text-ink dark:text-white">Zara Hussain</p>
+            <p class="text-[11px] text-ink-soft dark:text-rose-light/50">Islamabad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CONTACT SECTION
+════════════════════════════════════════════════ -->
+<section id="contact" class="py-20 px-4 sm:px-6">
+  <div class="max-w-5xl mx-auto rs-reveal">
+    <div class="text-center mb-12">
+      <div class="ornament-line mb-4"><span class="font-display italic text-sm text-gold-brand px-3">Get In Touch</span></div>
+      <h2 class="font-display font-bold text-4xl text-ink dark:text-white">Atelier <span class="gold-shimmer">Contact</span></h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <a href="mailto:rangsar.pk@gmail.com" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">📧</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">Email</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors break-all">rangsar.pk@gmail.com</p>
+      </a>
+      <a href="https://wa.me/923217024241" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">💬</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">WhatsApp</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">0321-7024241</p>
+      </a>
+      <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">📸</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">Instagram</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">@rangsar.studio</p>
+      </a>
+      <a href="https://www.facebook.com/share/1BBez7zFvJ/" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">📘</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">Facebook</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">RangSar Studio</p>
+      </a>
+      <a href="https://youtube.com/@rangsar.studio?si=qPD52yZiM1-xTwGu" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">▶️</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">YouTube</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">@rangsar.studio</p>
+      </a>
+      <a href="https://vm.tiktok.com/ZS96h3JTD6xD7-mgllK/" target="_blank" rel="noopener noreferrer" class="card-body testi-card flex flex-col items-center justify-center text-center p-5 hover:border-crimson-brand transition-colors group">
+        <span class="text-2xl mb-2">🎵</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">TikTok</p>
+        <p class="text-xs text-ink dark:text-white group-hover:text-crimson-brand transition-colors">@rangsar.studio</p>
+      </a>
+      <div class="card-body testi-card flex flex-col items-center justify-center text-center p-5">
+        <span class="text-2xl mb-2">📍</span>
+        <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand mb-1">Location</p>
+        <p class="text-xs text-ink dark:text-white">Ghulam M Abad,<br/>Faisalabad</p>
+      </div>
+    </div>
+
+    <!-- ── Install App Banner (always visible) ── -->
+    <div id="install-app-section" class="mt-8 rs-reveal">
+      <div class="rounded-2xl overflow-hidden border border-rose-dusty/20"
+        style="background:linear-gradient(135deg,#3d1a47 0%,#9b2355 100%);">
+        <div class="flex flex-col sm:flex-row items-center gap-5 p-6 sm:p-8">
+
+          <!-- Left: logo + text -->
+          <div class="flex items-center gap-4 flex-1">
+            <img src="logo.png" alt="RangSar"
+              style="width:60px;height:60px;border-radius:50%;border:2px solid rgba(201,160,101,0.5);flex-shrink:0;" />
+            <div class="text-left">
+              <p style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin:0;line-height:1.2;">
+                Get the RangSar App
+              </p>
+              <p style="font-size:0.75rem;color:rgba(255,255,255,0.65);margin:4px 0 0;font-family:Inter,sans-serif;line-height:1.5;">
+                📱 Install on your home screen — shop anytime, anywhere.<br/>
+                Works on iPhone & Android. Free. No app store needed!
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: buttons -->
+          <div class="flex flex-col gap-2 flex-shrink-0 w-full sm:w-auto">
+            <!-- Android / Chrome install button -->
+            <button id="permanent-install-btn" onclick="triggerInstall()"
+              style="
+                background:linear-gradient(135deg,#c9a065,#e0c080);
+                border:none; color:#1a0d11;
+                padding:11px 28px; border-radius:10px;
+                font-size:12px; font-weight:700;
+                cursor:pointer; font-family:Inter,sans-serif;
+                letter-spacing:0.06em; text-transform:uppercase;
+                display:flex; align-items:center; justify-content:center; gap:7px;
+                transition:transform 0.2s, box-shadow 0.2s;
+                box-shadow:0 4px 16px rgba(201,160,101,0.3);
+                width:100%;
+              "
+              onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(201,160,101,0.4)'"
+              onmouseout="this.style.transform='';this.style.boxShadow='0 4px 16px rgba(201,160,101,0.3)'">
+              <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+              </svg>
+              Install App ✦
+            </button>
+
+            <!-- iPhone manual instructions trigger -->
+            <button onclick="showIOSSteps()"
+              style="
+                background:rgba(255,255,255,0.1);
+                border:1px solid rgba(255,255,255,0.25);
+                color:rgba(255,255,255,0.8);
+                padding:9px 28px; border-radius:10px;
+                font-size:11px; font-weight:600;
+                cursor:pointer; font-family:Inter,sans-serif;
+                letter-spacing:0.05em; text-transform:uppercase;
+                width:100%; transition:background 0.2s;
+              "
+              onmouseover="this.style.background='rgba(255,255,255,0.18)'"
+              onmouseout="this.style.background='rgba(255,255,255,0.1)'">
+              📱 iPhone Instructions
+            </button>
+          </div>
+        </div>
+
+        <!-- iPhone steps (hidden by default, shown on button click) -->
+        <div id="ios-steps-inline" style="display:none;
+          background:rgba(0,0,0,0.2); padding:14px 20px;
+          border-top:1px solid rgba(255,255,255,0.1);">
+          <p style="color:rgba(255,255,255,0.9);font-size:12px;font-family:Inter,sans-serif;line-height:2;margin:0;">
+            <strong style="color:#c9a065;">On iPhone (Safari only):</strong><br/>
+            1️⃣ Open this website in <strong>Safari browser</strong> (not Chrome)<br/>
+            2️⃣ Tap the <strong style="color:#c9a065;">Share button ⎋</strong> at the bottom of the screen<br/>
+            3️⃣ Scroll down and tap <strong style="color:#c9a065;">"Add to Home Screen"</strong><br/>
+            4️⃣ Tap <strong style="color:#c9a065;">"Add"</strong> — RangSar icon appears on your home screen! 🌸
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer class="py-12 px-4 text-center border-t border-rose-dusty/20">
+  <p class="font-display italic text-2xl text-gold-brand mb-2">RangSar Studio</p>
+  <p class="text-xs uppercase tracking-[0.2em] text-white/40 mb-6">Elegance in Every Thread</p>
+  <div class="flex flex-wrap justify-center gap-6 mb-6 text-[11px] font-semibold tracking-widest text-white/40 uppercase">
+    <a href="#products" class="hover:text-white transition-colors">Shop All</a>
+    <a href="#testimonials" class="hover:text-white transition-colors">Reviews</a>
+    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+    <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+    <a href="https://www.facebook.com/share/1BBez7zFvJ/" target="_blank" class="hover:text-white transition-colors">Facebook</a>
+    <a href="https://youtube.com/@rangsar.studio?si=qPD52yZiM1-xTwGu" target="_blank" class="hover:text-white transition-colors">YouTube</a>
+    <a href="https://vm.tiktok.com/ZS96h3JTD6xD7-mgllK/" target="_blank" class="hover:text-white transition-colors">TikTok</a>
+  </div>
+  <p class="text-[11px] text-white/25 tracking-widest">© 2026 RangSar Studio. All Rights Reserved. &nbsp;·&nbsp; Crafted with ♥ in Pakistan</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════════
+     FLOATING ACTION BUTTONS
+     (YouTube + Facebook + Instagram + WhatsApp)
+════════════════════════════════════════════════ -->
+<div class="fixed bottom-6 right-5 z-50 flex flex-col gap-3 items-end">
+
+  <!-- TikTok -->
+  <a href="https://vm.tiktok.com/ZS96h3JTD6xD7-mgllK/" target="_blank" rel="noopener noreferrer"
+    class="fab-btn" style="background:#010101;" aria-label="RangSar Studio on TikTok">
+    <svg class="w-5 h-5" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M21.5 2h-4.2v19.2a4.3 4.3 0 0 1-4.3 4 4.3 4.3 0 0 1-4.3-4.3 4.3 4.3 0 0 1 4.3-4.3c.4 0 .8.1 1.2.2v-4.3a8.5 8.5 0 0 0-1.2-.1 8.5 8.5 0 0 0-8.5 8.5 8.5 8.5 0 0 0 8.5 8.5 8.5 8.5 0 0 0 8.5-8.5V11a11 11 0 0 0 6.4 2V8.8A6.6 6.6 0 0 1 21.5 2z"/>
+    </svg>
+    <span class="fab-tooltip">TikTok</span>
+  </a>
+
+  <!-- YouTube -->
+  <a href="https://youtube.com/@rangsar.studio?si=qPD52yZiM1-xTwGu" target="_blank" rel="noopener noreferrer"
+    class="fab-btn" style="background:#FF0000;" aria-label="RangSar Studio on YouTube">
+    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+    </svg>
+    <span class="fab-tooltip">YouTube</span>
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://www.facebook.com/share/1BBez7zFvJ/" target="_blank" rel="noopener noreferrer"
+    class="fab-btn" style="background:#1877F2;" aria-label="RangSar Studio on Facebook">
+    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+    </svg>
+    <span class="fab-tooltip">Facebook</span>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/rangsar.studio?igsh=MW1menRwdnc1dGQxcQ==" target="_blank" rel="noopener noreferrer"
+    class="fab-btn" style="background:linear-gradient(135deg,#f9ce34,#ee2a7b,#6228d7);" aria-label="RangSar Studio on Instagram">
+    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+    </svg>
+    <span class="fab-tooltip">Instagram</span>
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/923217024241?text=Assalamu%20Alaikum!%20I%20found%20your%20store%20and%20would%20like%20to%20place%20an%20order%20%F0%9F%8C%B8" target="_blank" rel="noopener noreferrer"
+    class="fab-btn" style="background:#25D366;" aria-label="Chat on WhatsApp">
+    <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.948 0c3.179.001 6.164 1.24 8.413 3.496 2.248 2.256 3.483 5.252 3.482 8.444-.003 6.597-5.339 11.945-11.89 11.945-2.005-.001-3.973-.507-5.729-1.464L0 24zm6.59-4.846c1.6.95 3.198 1.451 4.76 1.452 5.4 0 9.793-4.417 9.795-9.848.001-2.63-1.018-5.101-2.87-6.958C16.42 1.986 13.978 1.96 11.948 1.96c-5.404 0-9.801 4.422-9.804 9.854-.001 1.637.421 3.235 1.222 4.657l-.989 3.613 3.67-.962zm11.411-6.84c-.267-.134-1.583-.783-1.828-.873-.246-.089-.425-.134-.604.135-.179.268-.693.873-.849 1.052-.156.18-.313.201-.58.067-.268-.134-1.13-.417-2.153-1.331-.795-.71-1.332-1.587-1.488-1.854-.157-.269-.017-.414.118-.547.121-.12.267-.313.402-.469.134-.157.179-.268.268-.447.089-.179.045-.335-.022-.469-.067-.134-.604-1.456-.827-1.993-.217-.523-.437-.453-.604-.461-.157-.008-.335-.011-.514-.011-.18 0-.469.067-.715.335-.246.268-.938.917-.938 2.239 0 1.321.96 2.595 1.095 2.773.134.18 1.89 2.887 4.58 4.054.64.278 1.14.444 1.53.568.643.204 1.229.176 1.692.107.516-.078 1.583-.648 1.807-1.274.224-.626.224-1.163.157-1.274-.068-.111-.246-.179-.514-.313z"/>
+    </svg>
+    <span class="fab-tooltip">WhatsApp Order</span>
+  </a>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     CART OVERLAY + DRAWER
+════════════════════════════════════════════════ -->
+<div id="cart-overlay" onclick="closeCart()"></div>
+
+<aside id="cart-drawer" role="dialog" aria-label="Shopping cart" aria-modal="true">
+  <!-- Header -->
+  <div class="flex items-center justify-between px-5 py-4 border-b border-rose-dusty/15 flex-shrink-0">
+    <div>
+      <h2 class="font-display font-bold text-xl text-ink dark:text-white">Your Bag</h2>
+      <p class="text-[11px] text-gold-brand font-medium mt-0.5">✦ Elegance in Every Thread</p>
+    </div>
+    <button onclick="closeCart()" class="w-8 h-8 rounded-full border border-rose-dusty/25 flex items-center justify-center text-ink dark:text-white hover:border-crimson-brand hover:text-crimson-brand transition-colors" aria-label="Close cart">✕</button>
+  </div>
+
+  <!-- Items -->
+  <div id="cart-items-list" class="flex-1 overflow-y-auto px-5 py-3"></div>
+
+  <!-- Empty state -->
+  <div id="cart-empty" class="flex-1 flex flex-col items-center justify-center p-8 text-center hidden">
+    <div class="text-5xl mb-4">🛍️</div>
+    <p class="font-display italic text-lg text-ink-soft dark:text-rose-light/55 mb-1">Your bag is empty</p>
+    <p class="text-xs text-ink-soft dark:text-rose-light/40">Discover our curated collection and add your favourites.</p>
+    <button onclick="closeCart()" class="mt-5 px-6 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-widest text-white transition-all hover:-translate-y-0.5" style="background:linear-gradient(135deg,#9b2355,#b8326b)">Browse Collection</button>
+  </div>
+
+  <!-- Cart footer -->
+  <div id="cart-footer" class="px-5 py-4 border-t border-rose-dusty/15 flex-shrink-0 space-y-3 hidden">
+
+    <!-- ── DISCOUNT CODE INPUT ── -->
+    <div class="rounded-xl border border-rose-dusty/20 p-3 space-y-2" style="background:rgba(253,240,243,0.5)">
+      <p class="text-[10px] uppercase tracking-widest font-bold text-gold-brand">Have a Discount Code?</p>
+      <div class="flex gap-2">
+        <input
+          id="discount-input"
+          type="text"
+          placeholder="e.g. RANGSAR10"
+          onkeypress="handleDiscountKeypress(event)"
+          class="rs-input flex-1 text-xs uppercase tracking-widest"
+          style="padding:0.5rem 0.75rem;"
+          autocomplete="off"
+        />
+        <button onclick="applyDiscountCode()"
+          class="px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-widest text-white flex-shrink-0 transition-all hover:-translate-y-0.5"
+          style="background:linear-gradient(135deg,#9b2355,#b8326b);">
+          Apply
+        </button>
+      </div>
+      <!-- Feedback message -->
+      <p id="discount-msg" class="text-[11px] font-medium" style="display:none;"></p>
+      <!-- Remove discount button -->
+      <button id="remove-discount-btn" onclick="removeDiscount()"
+        class="text-[10px] text-rose-dusty/60 hover:text-crimson-brand transition-colors uppercase tracking-wider"
+        style="display:none;">
+        ✕ Remove discount
+      </button>
+    </div>
+
+    <!-- ── TOTALS ── -->
+    <div class="flex justify-between text-sm">
+      <span class="text-ink-soft dark:text-rose-light/60">Subtotal</span>
+      <span id="cart-subtotal" class="font-semibold text-ink dark:text-white">PKR 0</span>
+    </div>
+    <!-- Discount row — hidden until code applied -->
+    <div id="discount-row" class="flex justify-between text-sm" style="display:none;">
+      <span class="font-semibold" style="color:#22c55e;">Discount</span>
+      <span id="cart-discount" class="font-semibold" style="color:#22c55e;">− PKR 0</span>
+    </div>
+    <div id="delivery-row" class="flex justify-between text-sm">
+      <span class="text-ink-soft dark:text-rose-light/60">Delivery</span>
+      <span id="cart-delivery" class="font-semibold text-ink dark:text-white">PKR 250</span>
+    </div>
+    <div class="border-t border-rose-dusty/10 pt-3 flex justify-between">
+      <span class="font-bold text-ink dark:text-white">Total</span>
+      <span id="cart-total" class="font-display font-bold text-xl text-crimson-brand">PKR 0</span>
+    </div>
+    <p class="text-[10px] text-center text-gold-brand">🎉 Free delivery on orders above PKR 5,000</p>
+    <button onclick="openCheckout()" class="w-full py-3.5 rounded-xl text-xs font-bold uppercase tracking-widest text-white transition-all hover:-translate-y-0.5 hover:shadow-lg" style="background:linear-gradient(135deg,#3d1a47,#5c2d6e);">
+      Proceed to Checkout →
+    </button>
+    <button onclick="closeCart()" class="w-full py-2.5 rounded-xl text-xs font-medium uppercase tracking-widest text-ink dark:text-white border border-rose-dusty/25 hover:border-crimson-brand transition-colors">
+      Continue Shopping
+    </button>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════
+     CHECKOUT MODAL
+════════════════════════════════════════════════ -->
+<div id="modal-overlay" onclick="handleModalOverlayClick(event)" role="dialog" aria-label="Checkout" aria-modal="true">
+  <div id="modal-box">
+
+    <!-- Form state -->
+    <div id="checkout-form-state" class="p-6 space-y-5">
+
+      <!-- Modal header -->
+      <div class="flex items-center justify-between border-b border-rose-dusty/15 pb-4">
+        <div>
+          <h2 class="font-display font-bold text-2xl text-ink dark:text-white">Checkout</h2>
+          <p class="text-[11px] text-ink-soft dark:text-rose-light/50 mt-0.5">🔒 Secure & encrypted order</p>
+        </div>
+        <button onclick="closeCheckout()" class="w-8 h-8 rounded-full border border-rose-dusty/25 flex items-center justify-center text-ink dark:text-white hover:border-crimson-brand transition-colors">✕</button>
+      </div>
+
+      <!-- Personal info -->
+      <div class="space-y-3">
+        <h3 class="text-[11px] font-bold uppercase tracking-widest text-gold-brand border-l-2 border-gold-brand pl-2">Personal Information</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">Full Name *</label>
+            <input id="f-name" type="text" class="rs-input" placeholder="e.g. Ayesha Raza" />
+            <p id="err-name" class="field-error text-crimson-brand text-[11px] mt-1 hidden"></p>
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">Phone Number *</label>
+            <input id="f-phone" type="tel" class="rs-input" placeholder="+92 300 1234567" />
+            <p id="err-phone" class="field-error text-crimson-brand text-[11px] mt-1 hidden"></p>
+          </div>
+        </div>
+        <div>
+          <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">Email Address *</label>
+          <input id="f-email" type="email" class="rs-input" placeholder="ayesha@email.com" />
+          <p id="err-email" class="field-error text-crimson-brand text-[11px] mt-1 hidden"></p>
+        </div>
+      </div>
+
+      <!-- Shipping address -->
+      <div class="space-y-3">
+        <h3 class="text-[11px] font-bold uppercase tracking-widest text-gold-brand border-l-2 border-gold-brand pl-2">Shipping Address</h3>
+        <div>
+          <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">Street Address *</label>
+          <input id="f-street" type="text" class="rs-input" placeholder="House/Flat No., Street, Block" />
+          <p id="err-street" class="field-error text-crimson-brand text-[11px] mt-1 hidden"></p>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">City *</label>
+            <input id="f-city" type="text" class="rs-input" placeholder="Faisalabad" />
+            <p id="err-city" class="field-error text-crimson-brand text-[11px] mt-1 hidden"></p>
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-ink-soft dark:text-rose-light/60 mb-1">Province</label>
+            <select id="f-province" class="rs-input">
+              <option value="Punjab">Punjab</option>
+              <option value="Sindh">Sindh</option>
+              <option value="KPK">KPK</option>
+              <option value="Balochistan">Balochistan</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="AJK">AJK</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment — 2 options only -->
+      <div class="space-y-2">
+        <h3 class="text-[11px] font-bold uppercase tracking-widest text-gold-brand border-l-2 border-gold-brand pl-2">Payment Method</h3>
+
+        <!-- JazzCash -->
+        <label class="pay-option flex items-center gap-3 cursor-pointer" onclick="showPaymentInstructions()">
+          <input type="radio" name="payment_method" value="jazzcash" checked class="w-4 h-4" />
+          <span class="text-lg">📱</span>
+          <div>
+            <p class="text-xs font-bold text-ink dark:text-white">JazzCash Transfer</p>
+            <p class="text-[11px] text-ink-soft dark:text-rose-light/50">Send payment to our JazzCash number</p>
+          </div>
+        </label>
+
+        <!-- JazzCash instructions -->
+        <div id="jazz-instructions" class="pay-instructions">
+          <p class="text-xs font-bold text-gold-brand mb-1">JazzCash Account Details:</p>
+          <p class="text-xs text-ink dark:text-white font-semibold">0324-8556481</p>
+          <p class="text-xs text-ink dark:text-white">Account Name: Um Hani</p>
+          <p class="text-[11px] text-ink-soft dark:text-rose-light/60 mt-1.5">➊ Send payment &nbsp; ➋ Screenshot receipt &nbsp; ➌ WhatsApp us: 0321-7024241</p>
+        </div>
+
+        <!-- Bank Deposit -->
+        <label class="pay-option flex items-center gap-3 cursor-pointer" onclick="showPaymentInstructions()">
+          <input type="radio" name="payment_method" value="bank" class="w-4 h-4" />
+          <span class="text-lg">🏦</span>
+          <div>
+            <p class="text-xs font-bold text-ink dark:text-white">Bank Deposit</p>
+            <p class="text-[11px] text-ink-soft dark:text-rose-light/50">Direct bank transfer — same day dispatch</p>
+          </div>
+        </label>
+
+        <!-- Bank instructions -->
+        <div id="bank-instructions" class="pay-instructions hidden">
+          <p class="text-xs font-bold text-gold-brand mb-1">Bank Account Details:</p>
+          <p class="text-xs text-ink dark:text-white font-semibold">Meezan Bank</p>
+          <p class="text-xs text-ink dark:text-white">Account Title: <span class="font-bold">UME HANI</span></p>
+          <p class="text-xs text-ink dark:text-white">Account #: <span class="font-bold">21010102725045</span></p>
+          <p class="text-xs text-ink dark:text-white">IBAN: <span class="font-bold">PK37MEZN0021010102725045</span></p>
+          <p class="text-[11px] text-ink-soft dark:text-rose-light/60 mt-1.5">After deposit, WhatsApp receipt to: 0321-7024241</p>
+        </div>
+      </div>
+
+      <!-- Order summary inside modal -->
+      <div class="border border-rose-dusty/15 rounded-xl p-4 bg-rose-light/10 dark:bg-rose-brand/5">
+        <p class="text-[11px] font-bold uppercase tracking-widest text-gold-brand mb-2">Order Summary</p>
+        <div id="modal-order-items" class="space-y-1 mb-3"></div>
+        <div class="flex justify-between text-xs border-t border-rose-dusty/10 pt-2 mt-2">
+          <span class="text-ink-soft dark:text-rose-light/60">Subtotal</span>
+          <span id="modal-subtotal" class="font-semibold text-ink dark:text-white">PKR 0</span>
+        </div>
+        <div id="modal-discount-row" class="flex justify-between text-xs mt-1" style="display:none;">
+          <span class="font-semibold" style="color:#22c55e;">Discount</span>
+          <span id="modal-discount" class="font-semibold" style="color:#22c55e;">− PKR 0</span>
+        </div>
+        <div class="flex justify-between text-xs mt-1">
+          <span class="text-ink-soft dark:text-rose-light/60">Delivery</span>
+          <span id="modal-delivery" class="font-semibold text-ink dark:text-white">PKR 250</span>
+        </div>
+        <div class="flex justify-between font-bold mt-2 pt-2 border-t border-rose-dusty/10">
+          <span class="text-ink dark:text-white">Total</span>
+          <span id="modal-total" class="font-display text-xl text-crimson-brand">PKR 0</span>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <button id="place-order-btn" onclick="submitOrder()"
+        class="w-full py-4 rounded-xl text-xs font-bold uppercase tracking-widest text-white transition-all hover:-translate-y-0.5 hover:shadow-xl"
+        style="background:linear-gradient(135deg,#9b2355,#3d1a47);">
+        Place Order Securely ✦
+      </button>
+      <p class="text-center text-[10px] text-ink-soft dark:text-rose-light/40 flex items-center justify-center gap-1">
+        🔒 Once you submit payment receipt via WhatsApp, your order dispatches same day InshAllah.
+      </p>
+    </div>
+
+    <!-- Success state -->
+    <div id="success-state" class="flex-col items-center justify-center text-center p-8 py-14" style="display:none;">
+      <div class="w-16 h-16 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-5" style="background:linear-gradient(135deg,#9b2355,#3d1a47)">✓</div>
+      <h3 class="font-display font-bold text-3xl text-ink dark:text-white mb-2">Order Received!</h3>
+      <p id="success-order-num" class="text-xs font-bold text-gold-brand tracking-widest mb-4"></p>
+      <div class="bg-rose-light/30 dark:bg-rose-brand/10 border border-rose-dusty/20 rounded-xl p-4 mb-6 text-left max-w-sm mx-auto">
+        <p class="text-sm text-ink dark:text-white leading-relaxed">
+          Dear <strong id="success-name"></strong>, your order has been received! 🌸<br/><br/>
+          Once you submit your <strong>payment receipt via WhatsApp</strong> to <strong>0321-7024241</strong>, your order will be dispatched the <strong>same day</strong>, InshAllah.<br/><br/>
+          Thank you for shopping with <strong>RangSar Studio</strong>. ✦
+        </p>
+      </div>
+      <a href="https://wa.me/923217024241?text=Assalamu%20Alaikum!%20I%20have%20placed%20an%20order%20and%20I'm%20sending%20my%20payment%20receipt%20%F0%9F%8C%B8" target="_blank"
+        class="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-white text-xs font-bold uppercase tracking-widest mb-3 hover:-translate-y-0.5 transition-all"
+        style="background:#25D366;">
+        📤 Send Payment Receipt on WhatsApp
+      </a>
+      <br/>
+      <button onclick="closeCheckout(); clearCart();"
+        class="px-7 py-3 rounded-xl text-xs font-bold uppercase tracking-widest text-ink dark:text-white border border-rose-dusty/30 hover:border-crimson-brand transition-colors">
+        Return to Shop
+      </button>
+    </div>
+
+  </div><!-- end modal-box -->
+</div><!-- end modal-overlay -->
+
+<!-- ═══════════════════════════════════════════════
+     SCRIPTS (load products first, then cart logic)
+════════════════════════════════════════════════ -->
+<script src="products.js"></script>
+<script src="cart.js"></script>
+
+<!-- ═══════════════════════════════════════════════
+     AI ASSISTANT CHATBOT — RangSar Studio
+════════════════════════════════════════════════ -->
+
+<!-- Chat toggle button (bottom left) -->
+<button id="chat-fab" onclick="toggleChat()" aria-label="Chat with RangSar AI" style="
+  position: fixed;
+  bottom: 24px; left: 20px;
+  z-index: 500;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  border: none; cursor: pointer;
+  background: linear-gradient(135deg, #3d1a47, #9b2355);
+  box-shadow: 0 4px 20px rgba(155,35,85,0.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+  <!-- Chat icon -->
+  <svg id="chat-icon-open" width="24" height="24" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+  </svg>
+  <!-- Close icon (hidden) -->
+  <svg id="chat-icon-close" width="22" height="22" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24" style="display:none;">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+  </svg>
+  <!-- Notification dot -->
+  <span id="chat-dot" style="
+    position:absolute; top:2px; right:2px;
+    width:12px; height:12px; border-radius:50%;
+    background:#c9a065; border:2px solid #fff;
+    animation: pulseDot 2s infinite;
+  "></span>
+</button>
+
+<!-- Chat Window -->
+<div id="chat-window" style="
+  position: fixed;
+  bottom: 90px; left: 20px;
+  width: min(360px, calc(100vw - 40px));
+  height: min(520px, 70vh);
+  z-index: 500;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(61,26,71,0.35);
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid rgba(212,132,158,0.2);
+  animation: chatSlideUp 0.3s ease;
+">
+
+  <!-- Chat Header -->
+  <div style="
+    background: linear-gradient(135deg, #3d1a47, #9b2355);
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0;
+  ">
+    <img src="logo.png" alt="RangSar" style="width:36px;height:36px;border-radius:50%;border:2px solid rgba(201,160,101,0.5);flex-shrink:0;" />
+    <div style="flex:1;">
+      <p style="color:#fff;font-weight:700;font-size:13px;margin:0;font-family:'Cormorant Garamond',serif;">RangSar AI Assistant</p>
+      <p style="color:rgba(255,255,255,0.65);font-size:10px;margin:0;font-family:Inter,sans-serif;display:flex;align-items:center;gap:4px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#4ade80;display:inline-block;"></span>
+        Online — Ask me anything about our collection
+      </p>
+    </div>
+    <button onclick="toggleChat()" style="background:rgba(255,255,255,0.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;">✕</button>
+  </div>
+
+  <!-- Messages area -->
+  <div id="chat-messages" style="
+    flex: 1;
+    overflow-y: auto;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #fdf8f9;
+    scroll-behavior: smooth;
+  ">
+    <!-- Welcome message -->
+    <div class="chat-msg-bot" style="display:flex;gap:8px;align-items:flex-start;">
+      <img src="logo.png" style="width:26px;height:26px;border-radius:50%;flex-shrink:0;margin-top:2px;" />
+      <div style="background:#fff;border:1px solid rgba(212,132,158,0.2);border-radius:4px 14px 14px 14px;padding:10px 13px;max-width:85%;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+        <p style="margin:0;font-size:12.5px;color:#1a0d11;line-height:1.6;font-family:Inter,sans-serif;">
+          Assalamu Alaikum! 🌸 I'm your RangSar AI Assistant.<br/><br/>
+          I can help you with our <strong>collection, sizes, prices, delivery</strong>, and <strong>orders</strong>. What would you like to know?
+        </p>
+      </div>
+    </div>
+
+    <!-- Quick suggestion buttons -->
+    <div id="quick-suggestions" style="display:flex;flex-wrap:wrap;gap:6px;padding-left:34px;">
+      <button onclick="sendQuickMsg('What collections do you have?')" class="quick-chip">👗 Collections</button>
+      <button onclick="sendQuickMsg('What are your delivery charges?')" class="quick-chip">🚚 Delivery</button>
+      <button onclick="sendQuickMsg('How do I place an order?')" class="quick-chip">🛍️ How to Order</button>
+      <button onclick="sendQuickMsg('Do you have discount codes?')" class="quick-chip">💸 Discounts</button>
+    </div>
+  </div>
+
+  <!-- Input area -->
+  <div style="
+    padding: 10px 12px;
+    border-top: 1px solid rgba(212,132,158,0.15);
+    display: flex; gap: 8px; align-items: flex-end;
+    background: #fff; flex-shrink: 0;
+  ">
+    <textarea
+      id="chat-input"
+      placeholder="Ask about our collection, sizes, delivery..."
+      onkeydown="handleChatKey(event)"
+      rows="1"
+      oninput="this.style.height='auto';this.style.height=Math.min(this.scrollHeight,80)+'px'"
+      style="
+        flex:1; border:1.5px solid rgba(212,132,158,0.3);
+        border-radius:10px; padding:8px 11px;
+        font-size:12.5px; font-family:Inter,sans-serif;
+        color:#1a0d11; resize:none; outline:none;
+        background:#fdf8f9; line-height:1.5;
+        transition:border-color 0.2s;
+      "
+      onfocus="this.style.borderColor='#9b2355'"
+      onblur="this.style.borderColor='rgba(212,132,158,0.3)'"
+    ></textarea>
+    <button onclick="sendChatMessage()" id="chat-send-btn" style="
+      width:38px; height:38px; border-radius:50%; border:none;
+      background:linear-gradient(135deg,#9b2355,#3d1a47);
+      color:#fff; cursor:pointer; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+      transition:transform 0.2s, opacity 0.2s;
+    " onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+      <svg width="16" height="16" fill="none" stroke="white" stroke-width="2.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+      </svg>
+    </button>
+  </div>
+
+</div>
+
+<!-- Chatbot styles -->
+<style>
+  .quick-chip {
+    background: #fff;
+    border: 1.5px solid rgba(212,132,158,0.35);
+    color: #9b2355;
+    font-size: 10.5px;
+    font-weight: 600;
+    font-family: Inter, sans-serif;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .quick-chip:hover {
+    background: #9b2355;
+    color: #fff;
+    border-color: #9b2355;
+  }
+  @keyframes chatSlideUp {
+    from { opacity:0; transform:translateY(16px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  @keyframes pulseDot {
+    0%,100% { transform:scale(1); opacity:1; }
+    50%      { transform:scale(1.4); opacity:0.7; }
+  }
+  @keyframes typingBounce {
+    0%,80%,100% { transform:translateY(0); }
+    40%          { transform:translateY(-6px); }
+  }
+  #chat-messages::-webkit-scrollbar { width:4px; }
+  #chat-messages::-webkit-scrollbar-thumb { background:#d4849e; border-radius:4px; }
+</style>
+
+<!-- Chatbot JavaScript -->
+<script>
+  /* ── Chat State ── */
+  let chatOpen      = false;
+  let chatHistory   = [];   // Keeps conversation context
+  let chatWaiting   = false;
+
+  /* ── Toggle chat window ── */
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const win      = document.getElementById('chat-window');
+    const iconOpen = document.getElementById('chat-icon-open');
+    const iconClose= document.getElementById('chat-icon-close');
+    const dot      = document.getElementById('chat-dot');
+
+    win.style.display      = chatOpen ? 'flex' : 'none';
+    iconOpen.style.display = chatOpen ? 'none' : 'block';
+    iconClose.style.display= chatOpen ? 'block' : 'none';
+    if (dot) dot.style.display = 'none'; // hide dot once opened
+
+    if (chatOpen) {
+      setTimeout(() => document.getElementById('chat-input')?.focus(), 200);
+      scrollChatToBottom();
+    }
+  }
+
+  /* ── Send on Enter (Shift+Enter = new line) ── */
+  function handleChatKey(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendChatMessage();
+    }
+  }
+
+  /* ── Quick suggestion chips ── */
+  function sendQuickMsg(text) {
+    document.getElementById('quick-suggestions')?.remove();
+    document.getElementById('chat-input').value = text;
+    sendChatMessage();
+  }
+
+  /* ── Send message to AI ── */
+  async function sendChatMessage() {
+    const input = document.getElementById('chat-input');
+    const text  = input?.value.trim();
+    if (!text || chatWaiting) return;
+
+    // Clear input
+    input.value = '';
+    input.style.height = 'auto';
+    document.getElementById('quick-suggestions')?.remove();
+
+    // Show user message
+    appendMessage('user', text);
+
+    // Add to history
+    chatHistory.push({ role: 'user', content: text });
+
+    // Show typing indicator
+    chatWaiting = true;
+    showTyping();
+
+    try {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: `You are the friendly AI shopping assistant for RangSar Studio — a premium Pakistani fashion brand based in Faisalabad. Your name is "Rang" 🌸
+
+BRAND INFO:
+- Name: RangSar Studio
+- Tagline: "Elegance in Every Thread"
+- Speciality: Premium Pakistani fashion — lawns, embroideries, cambric suits, printed fabrics, accessories
+- Instagram: @rangsar.studio
+- WhatsApp: 0321-7024241
+- Email: rangsar.pk@gmail.com
+- Location: Ghulam M Abad, Faisalabad
+
+PRODUCTS & PRICES (current collection):
+- Premium Rose Solid Lawn — PKR 4,200 (Sizes: S,M,L,XL,XXL)
+- Floral Printed Chiffon — PKR 3,850 (Sizes: S,M,L,XL)
+- Royal Cambric Embroidered Suite — PKR 8,900 (Sizes: S,M,L,XL,XXL) — Exclusive
+- Crimson Khaddar Winter Edit — PKR 3,600 (Sizes: M,L,XL,XXL) — Sale
+- Plum Festive Embroidery — PKR 11,500 (Sizes: S,M,L,XL) — Only 3 Left!
+- Boho Block Printed Lawn — PKR 3,200 (Sizes: S,M,L,XL,XXL)
+- Dusty Rose Formal Suit — PKR 6,800 (Sizes: S,M,L,XL)
+- Gold Drop Earrings — PKR 1,800 — Accessories
+
+DELIVERY:
+- PKR 250 delivery charge
+- FREE delivery on orders above PKR 5,000
+
+PAYMENT:
+- JazzCash: 0324-8556481 (Um Hani)
+- Bank: Meezan Bank, Account: 21010102725045, IBAN: PK37MEZN0021010102725045 (UME HANI)
+- After payment, WhatsApp receipt to 0321-7024241 — same day dispatch InshAllah!
+
+DISCOUNT CODES:
+- RANGSAR10 = 10% off
+- WELCOME = 15% off
+- EID2025 = 20% off
+- FLAT500 = PKR 500 off
+- VIP = 25% off
+
+HOW TO ORDER:
+1. Browse products on website
+2. Select size and click "Add to Cart"
+3. Go to cart and click "Proceed to Checkout"
+4. Fill in name, phone, address
+5. Choose JazzCash or Bank Deposit
+6. Place order then send payment receipt on WhatsApp
+
+YOUR PERSONALITY:
+- Warm, friendly, helpful — like a knowledgeable shop assistant
+- Use occasional Urdu words naturally (InshAllah, JazakAllah, Mashallah)
+- Keep answers short and clear — 2-4 sentences max unless more detail is needed
+- Use emojis occasionally 🌸✨
+- Always encourage customer to visit the website or WhatsApp for more help
+- Respond in the same language customer uses (Urdu or English)
+- NEVER make up products or prices not listed above`,
+          messages: chatHistory
+        })
+      });
+
+      const data   = await response.json();
+      const reply  = data.content?.[0]?.text || "I'm sorry, I couldn't get a response. Please WhatsApp us at 0321-7024241 🌸";
+
+      // Remove typing indicator
+      removeTyping();
+      chatWaiting = false;
+
+      // Show AI reply
+      appendMessage('bot', reply);
+
+      // Add to history (keep last 10 messages to avoid token limits)
+      chatHistory.push({ role: 'assistant', content: reply });
+      if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
+
+    } catch (err) {
+      removeTyping();
+      chatWaiting = false;
+      appendMessage('bot', "Sorry, I'm having trouble connecting right now 😔 Please WhatsApp us directly at 0321-7024241 and we'll be happy to help! 🌸");
+    }
+  }
+
+  /* ── Append a message bubble ── */
+  function appendMessage(role, text) {
+    const container = document.getElementById('chat-messages');
+    const isBot     = role === 'bot';
+    const div       = document.createElement('div');
+
+    div.style.cssText = `display:flex; gap:8px; align-items:flex-start; ${isBot ? '' : 'flex-direction:row-reverse;'}`;
+
+    // Convert markdown-like **bold** and line breaks
+    const formatted = text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\n/g, '<br/>');
+
+    div.innerHTML = isBot
+      ? `<img src="logo.png" style="width:26px;height:26px;border-radius:50%;flex-shrink:0;margin-top:2px;" />
+         <div style="background:#fff;border:1px solid rgba(212,132,158,0.2);border-radius:4px 14px 14px 14px;padding:10px 13px;max-width:85%;box-shadow:0 1px 4px rgba(0,0,0,0.05);">
+           <p style="margin:0;font-size:12.5px;color:#1a0d11;line-height:1.65;font-family:Inter,sans-serif;">${formatted}</p>
+         </div>`
+      : `<div style="background:linear-gradient(135deg,#9b2355,#3d1a47);border-radius:14px 4px 14px 14px;padding:10px 13px;max-width:85%;">
+           <p style="margin:0;font-size:12.5px;color:#fff;line-height:1.65;font-family:Inter,sans-serif;">${formatted}</p>
+         </div>`;
+
+    container.appendChild(div);
+    scrollChatToBottom();
+  }
+
+  /* ── Typing indicator ── */
+  function showTyping() {
+    const container = document.getElementById('chat-messages');
+    const div       = document.createElement('div');
+    div.id          = 'chat-typing';
+    div.style.cssText = 'display:flex;gap:8px;align-items:flex-start;';
+    div.innerHTML   = `
+      <img src="logo.png" style="width:26px;height:26px;border-radius:50%;flex-shrink:0;" />
+      <div style="background:#fff;border:1px solid rgba(212,132,158,0.2);border-radius:4px 14px 14px 14px;padding:11px 15px;box-shadow:0 1px 4px rgba(0,0,0,0.05);">
+        <div style="display:flex;gap:4px;align-items:center;height:14px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#d4849e;animation:typingBounce 1.2s 0s infinite;display:block;"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#d4849e;animation:typingBounce 1.2s 0.2s infinite;display:block;"></span>
+          <span style="width:6px;height:6px;border-radius:50%;background:#d4849e;animation:typingBounce 1.2s 0.4s infinite;display:block;"></span>
+        </div>
+      </div>`;
+    container.appendChild(div);
+    scrollChatToBottom();
+  }
+
+  function removeTyping() {
+    document.getElementById('chat-typing')?.remove();
+  }
+
+  function scrollChatToBottom() {
+    const c = document.getElementById('chat-messages');
+    if (c) setTimeout(() => c.scrollTop = c.scrollHeight, 50);
+  }
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PWA — INSTALL APP BANNER
+     Shows automatically when browser supports it
+════════════════════════════════════════════════ -->
+
+<!-- Install banner (hidden by default, shown by JS when available) -->
+<div id="pwa-banner" style="
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: linear-gradient(135deg, #3d1a47, #9b2355);
+  padding: 14px 20px;
+  box-shadow: 0 -4px 24px rgba(155,35,85,0.3);
+  animation: slideUpBanner 0.4s ease;
+">
+  <div style="max-width:600px; margin:0 auto; display:flex; align-items:center; gap:14px; justify-content:space-between;">
+    <!-- Logo + text -->
+    <div style="display:flex; align-items:center; gap:12px;">
+      <img src="logo.png" alt="RangSar" style="width:44px; height:44px; border-radius:50%; border:2px solid rgba(201,160,101,0.5); flex-shrink:0;" />
+      <div>
+        <p style="color:#fff; font-weight:700; font-size:13px; margin:0; font-family:'Cormorant Garamond',serif; letter-spacing:0.03em;">
+          RangSar Studio
+        </p>
+        <p style="color:rgba(255,255,255,0.7); font-size:11px; margin:0; font-family:Inter,sans-serif;">
+          Add to home screen for quick access 📱
+        </p>
+      </div>
+    </div>
+    <!-- Buttons -->
+    <div style="display:flex; gap:8px; flex-shrink:0;">
+      <button id="pwa-dismiss" onclick="dismissPWA()" style="
+        background: rgba(255,255,255,0.15);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #fff; padding: 7px 14px;
+        border-radius: 8px; font-size: 11px;
+        font-weight: 600; cursor: pointer;
+        font-family: Inter, sans-serif;
+        letter-spacing: 0.05em; text-transform: uppercase;
+      ">Later</button>
+      <button id="pwa-install" onclick="installPWA()" style="
+        background: linear-gradient(135deg, #c9a065, #e0c080);
+        border: none; color: #1a0d11;
+        padding: 7px 16px; border-radius: 8px;
+        font-size: 11px; font-weight: 700;
+        cursor: pointer; font-family: Inter, sans-serif;
+        letter-spacing: 0.05em; text-transform: uppercase;
+      ">Install App ✦</button>
+    </div>
+  </div>
+</div>
+
+<!-- iOS instruction banner (shown for iPhone users who can't use the prompt) -->
+<div id="ios-banner" style="
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 999;
+  background: linear-gradient(135deg, #3d1a47, #9b2355);
+  padding: 16px 20px;
+  box-shadow: 0 -4px 24px rgba(155,35,85,0.3);
+">
+  <div style="max-width:600px; margin:0 auto;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:10px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img src="logo.png" alt="RangSar" style="width:38px; height:38px; border-radius:50%; border:2px solid rgba(201,160,101,0.5);" />
+        <p style="color:#fff; font-weight:700; font-size:13px; margin:0; font-family:'Cormorant Garamond',serif;">
+          Install RangSar Studio
+        </p>
+      </div>
+      <button onclick="dismissIOS()" style="
+        background:rgba(255,255,255,0.15); border:none; color:#fff;
+        width:28px; height:28px; border-radius:50%; font-size:14px;
+        cursor:pointer; display:flex; align-items:center; justify-content:center;">✕</button>
+    </div>
+    <div style="background:rgba(255,255,255,0.1); border-radius:10px; padding:10px 14px;">
+      <p style="color:rgba(255,255,255,0.9); font-size:12px; margin:0; font-family:Inter,sans-serif; line-height:1.8;">
+        1. Tap the <strong style="color:#c9a065;">Share</strong> button
+        <span style="font-size:15px;">⎋</span> at the bottom of Safari<br/>
+        2. Scroll down and tap <strong style="color:#c9a065;">"Add to Home Screen"</strong><br/>
+        3. Tap <strong style="color:#c9a065;">"Add"</strong> — done! 🌸
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes slideUpBanner {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+</style>
+
+<script>
+  /* ── PWA Install Logic ── */
+  let deferredPrompt = null;
+
+  // Detect iOS
+  const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const isInStandaloneMode = window.matchMedia('(display-mode: standalone)').matches
+    || window.navigator.standalone;
+
+  // Android/Chrome — capture install prompt
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    // Show banner after 5 seconds (always — no permanent dismiss)
+    const lastDismissed = localStorage.getItem('rs-pwa-dismissed-time');
+    const tenMinutes    = 10 * 60 * 1000;
+    const shouldShow    = !lastDismissed || (Date.now() - parseInt(lastDismissed)) > tenMinutes;
+    if (shouldShow) {
+      setTimeout(() => {
+        document.getElementById('pwa-banner').style.display = 'block';
+      }, 5000);
+    }
+    // Always show the permanent install button
+    const permBtn = document.getElementById('permanent-install-btn');
+    if (permBtn) permBtn.style.display = 'flex';
+  });
+
+  // Called from the permanent Install App button
+  function triggerInstall() {
+    if (deferredPrompt) {
+      // Android/Chrome — trigger native prompt
+      installPWA();
+    } else if (isIOS) {
+      // iPhone — show inline steps
+      showIOSSteps();
+    } else {
+      // Already installed or not supported
+      showIOSSteps(); // show manual steps as fallback
+    }
+  }
+
+  function installPWA() {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((result) => {
+      if (result.outcome === 'accepted') {
+        document.getElementById('pwa-banner').style.display = 'none';
+        document.getElementById('install-app-section').style.display = 'none';
+        showToast('RangSar Studio installed on your home screen! 🌸');
+      }
+      deferredPrompt = null;
+    });
+  }
+
+  // "Later" — only hides for 10 minutes, then shows again next visit
+  function dismissPWA() {
+    document.getElementById('pwa-banner').style.display = 'none';
+    localStorage.setItem('rs-pwa-dismissed-time', Date.now().toString());
+  }
+
+  function dismissIOS() {
+    document.getElementById('ios-banner').style.display = 'none';
+    localStorage.setItem('rs-pwa-dismissed-time', Date.now().toString());
+  }
+
+  // Show/hide iPhone steps inside the permanent banner
+  function showIOSSteps() {
+    const el = document.getElementById('ios-steps-inline');
+    if (!el) return;
+    const isVisible = el.style.display !== 'none';
+    el.style.display = isVisible ? 'none' : 'block';
+  }
+
+  // iOS — show floating instruction banner
+  if (isIOS && !isInStandaloneMode) {
+    const lastDismissed = localStorage.getItem('rs-pwa-dismissed-time');
+    const tenMinutes    = 10 * 60 * 1000;
+    const shouldShow    = !lastDismissed || (Date.now() - parseInt(lastDismissed)) > tenMinutes;
+    if (shouldShow) {
+      setTimeout(() => {
+        document.getElementById('ios-banner').style.display = 'block';
+      }, 5000);
+    }
+  }
+
+  // Hide install section if already installed
+  if (isInStandaloneMode) {
+    document.getElementById('install-app-section').style.display = 'none';
+  }
+
+  // Register service worker (makes app work offline)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('RangSar PWA ready ✦'))
+        .catch(() => console.log('SW not available'));
+    });
+  }
+</script>
+
+</body>
+</html>
